@@ -1,0 +1,22 @@
+#include <iostream>
+#include "pet.h"
+
+int main(){
+    
+    pet1 = Pet("Max", 2.5, Type::DOG);
+    pet2 = Pet("Debbie", 5, Type::SNAKE);
+    pet3 = Pet("Chloe", 3, Type::CAT);
+    pet4 = Pet("Ben",5, Type::TIGER);
+    
+    Pet p1{"Fido", 2.37, Type::DOG};
+    Pet p2{"Corey", 5.6, Type::Snake};
+    Pet p3{"Abby", 4.8, Type::CAT};
+    Pet p4{"Matt", 7, Type::TIGER};
+    Pet p5{"Jade", 1.2, Type::HAMSTER};
+    
+
+
+
+
+
+}
