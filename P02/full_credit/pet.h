@@ -2,23 +2,22 @@
 #define __PET_H
 
 
-
-#include <iostream>
+#include <vector>
 #include <string>
 
-using namespace std;
-enum Type {DOG, CAT, HAMSTER, SNAKE,TIGER};
+enum Type {DOG, CAT, HAMSTER};
+//Create a vector to have a string representation of enum Type
+const std::vector<std::string> to_string{
+	"dog", "cat", "hamster"
+};
 
 class Pet{
     public:
-        Pet(string _name, double _age,Type _type);     //Constructor
- 
-        ~Pet();                                      //Destructor
-
-    std::string to_string();     //to_string method
+        Pet(std::string _name, double age,Type type);     //Constructor
+		std::string to_string();     //to_string method
         
     private:
-       string _name;
+       std::string _name;
        double _age;
        Type _type;
 
