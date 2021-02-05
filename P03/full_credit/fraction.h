@@ -15,7 +15,7 @@ private:
  
 public:
 	Fraction(int numerator=0, int denominator=1);
-	int gcd(int a, int b);
+	static int gcd(int a, int b);
 	void reduce();
 	
 	//Multiplication Operator overloading

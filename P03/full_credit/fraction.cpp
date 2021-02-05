@@ -6,7 +6,7 @@
 Fraction::Fraction(int numerator, int denominator):
 	_n{ numerator }, _d{ denominator } {reduce();}
 
-static int Fraction::gcd(int a, int b)
+int Fraction::gcd(int a, int b)
 {
 	return b == 0 ? a : gcd(b, a % b);
 }
@@ -21,32 +21,29 @@ void Fraction::reduce()
 		}
 }
 
-Fraction Fraction::operator/(const Fraction &f1, const Fraction &f2)
+//Division
+Fraction Fraction::operator/(const Fraction &f2)
 {
-	return { f1._n*f2._d, f1._d * f2._n };
+	return Fraction {_n*f2._d, _d * f2._n };
 }
-Fraction Fraction::operator+(const Fraction &f1, const Fraction &f2)
+
+//Addition
+Fraction Fraction::operator+(const Fraction &f2)
 {
-	return { f1._n * f2._d + f1._d*f2._n, f1._d * f2._d };
+	return { _n * f2._d + _d*f2._n, _d * f2._d };
 }
-Fraction Fraction::operator*(const Fraction &f1, const Fraction &f2)
+//Multiplication
+Fraction Fraction::operator*(const Fraction &f2)
 {
-	return { f1._n * f2._n, f1._d * f2._d };
+	return { _n * f2._n, _d * f2._d };
 }
-Fraction Fraction::operator*(const Fraction &f1, int value)
-{
-	return { f1._n * value, f1._d };
-}
-Fraction Fraction::operator*(int value, const Fraction &f1)
-{
-	return { f1._n * value, f1._d };
-}
-Fraction::std::ostream& operator<<(std::ostream &out, const Fraction &f1)
+
+std::ostream& operator<<(std::ostream &out, const Fraction &f1)
 {
 	out << f1._n << '/' << f1._d;
 	return out;
 }
-Fraction::std::istream& operator>>(std::istream &in, Fraction &f1)
+std::istream& operator>>(std::istream &in, Fraction &f1)
 {
 	// Overwrite the values of f1
 	in >> f1._n;
@@ -61,7 +58,7 @@ Fraction::std::istream& operator>>(std::istream &in, Fraction &f1)
  
 	return in;
 }
-Fraction Fraction::void print()
+void Fraction::print()
 	{
 		std::cout << _n << '/' << _d << '\n';
 	}
