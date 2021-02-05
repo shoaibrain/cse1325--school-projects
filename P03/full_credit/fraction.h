@@ -10,17 +10,20 @@ class Fraction{
 		Fraction (int numerator = 0, int denominator = 1){
 			
 		}
-		int value();
-		Fraction operator-();
-		Fraction operator+(Fraction& rhs);
-		Fraction operator-(Fraction& rhs);
-		Fraction operator*(Fraction& rhs);
-		Fraction operator/(Fraction& rhs);
+		friend std::ostream& operator<< (std::ostream &out, const Fraction &frac);
+		friend std::istream& operator>> (std::istream &in, Fraction &frac);
+		
+		//int value();
+		//Fraction operator-();
+		//Fraction operator+(Fraction& rhs);
+		//Fraction operator-(Fraction& rhs);
+		//Fraction operator*(Fraction& rhs);
+		//Fraction operator/(Fraction& rhs);
 		
 	private:
 		int _n;
 		int _d;
-		reduce();
+		//reduce();
 };
 
 
