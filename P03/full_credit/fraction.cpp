@@ -22,20 +22,20 @@ void Fraction::reduce()
 }
 
 //Division
-Fraction Fraction::operator/(const Fraction &f2)
+Fraction Fraction::operator/(const Fraction& f2)
 {
-	return Fraction {_n*f2._d, _d * f2._n };
+	return Fraction{_n*f2._d, _d * f2._n };
 }
 
 //Addition
-Fraction Fraction::operator+(const Fraction &f2)
+Fraction Fraction::operator+(const Fraction& f2)
 {
-	return { _n * f2._d + _d*f2._n, _d * f2._d };
+	return Fraction{ _n * f2._d + _d*f2._n, _d * f2._d };
 }
 //Multiplication
-Fraction Fraction::operator*(const Fraction &f2)
+Fraction Fraction::operator*(const Fraction& f2)
 {
-	return { _n * f2._n, _d * f2._d };
+	return Fraction{ _n * f2._n, _d * f2._d };
 }
 
 std::ostream& operator<<(std::ostream &out, const Fraction &f1)
