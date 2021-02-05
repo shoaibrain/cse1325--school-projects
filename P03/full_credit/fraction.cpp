@@ -1,10 +1,10 @@
-#include <fraction.h>
-#include <iostream>
+#include "fraction.h"
 #include <limits>
+#include <iostream>
  
  
-Fraction::Fraction(int numerator =0, int denominator =1):
-	_n{ numerator }, _d{ denominator } {reduce()}
+Fraction::Fraction(int numerator, int denominator):
+	_n{ numerator }, _d{ denominator } {reduce();}
 
 static int Fraction::gcd(int a, int b)
 {
@@ -21,23 +21,23 @@ void Fraction::reduce()
 		}
 }
 
-Fraction::Fraction operator/(const Fraction &f1, const Fraction &f2)
+Fraction Fraction::operator/(const Fraction &f1, const Fraction &f2)
 {
 	return { f1._n*f2._d, f1._d * f2._n };
 }
-Fraction::Fraction operator+(const Fraction &f1, const Fraction &f2)
+Fraction Fraction::operator+(const Fraction &f1, const Fraction &f2)
 {
 	return { f1._n * f2._d + f1._d*f2._n, f1._d * f2._d };
 }
-Fraction::Fraction operator*(const Fraction &f1, const Fraction &f2)
+Fraction Fraction::operator*(const Fraction &f1, const Fraction &f2)
 {
 	return { f1._n * f2._n, f1._d * f2._d };
 }
-Fraction::Fraction operator*(const Fraction &f1, int value)
+Fraction Fraction::operator*(const Fraction &f1, int value)
 {
 	return { f1._n * value, f1._d };
 }
-Fraction::Fraction operator*(int value, const Fraction &f1)
+Fraction Fraction::operator*(int value, const Fraction &f1)
 {
 	return { f1._n * value, f1._d };
 }
@@ -61,7 +61,7 @@ Fraction::std::istream& operator>>(std::istream &in, Fraction &f1)
  
 	return in;
 }
-Fraction::void print()
+Fraction Fraction::void print()
 	{
 		std::cout << _n << '/' << _d << '\n';
 	}
