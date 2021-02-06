@@ -19,13 +19,13 @@ public:
 	void reduce();
 	
 	//Multiplication Operator overloading
-	friend Fraction operator*(const Fraction &f1, const Fraction &f2);
+	Fraction operator*(const Fraction &f2);
 	//Division operator overloading
-	friend Fraction operator/(const Fraction &f1, const Fraction &f2);
+	Fraction operator/(const Fraction &f2);
 	//Addition operator overloading
-	friend Fraction operator+(const Fraction &f1, const Fraction &f2);
+	Fraction operator+(const Fraction &f2);
 	//Division operator overloading
-	friend Fraction operator-(const Fraction &f1, const Fraction &f2);
+	Fraction operator-(const Fraction &f2);
 	
 	
 	//Negate

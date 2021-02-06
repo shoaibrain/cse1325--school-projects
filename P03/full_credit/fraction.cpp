@@ -24,7 +24,7 @@ void Fraction::reduce()
 //Division
 Fraction Fraction::operator/(const Fraction& f2)
 {
-	return Fraction{_n*f2._d, _d * f2._n };
+	return Fraction(_n*f2._d, _d * f2._n );
 }
 
 //Addition
