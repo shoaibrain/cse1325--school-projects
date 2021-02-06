@@ -25,7 +25,7 @@ public:
 	//Addition operator overloading
 	Fraction operator+(const Fraction &f2);
 	//Division operator overloading
-	Fraction operator-(const Fraction &f2);
+	Fraction operator-() const;
 	
 	
 	//Negate

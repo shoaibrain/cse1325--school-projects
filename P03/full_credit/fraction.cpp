@@ -37,6 +37,14 @@ Fraction Fraction::operator*(const Fraction& f2)
 {
 	return Fraction{ _n * f2._n, _d * f2._d };
 }
+//Negation
+Fraction Fraction::operator-()const
+{
+	Fraction temp;
+	temp._n = -_n;
+	temp._d = _d;
+	return temp;
+}
 
 std::ostream& operator<<(std::ostream &out, const Fraction &f1)
 {
