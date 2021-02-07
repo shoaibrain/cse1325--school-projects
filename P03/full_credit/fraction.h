@@ -24,12 +24,12 @@ public:
 	Fraction operator/(const Fraction &f2);
 	//Addition operator overloading
 	Fraction operator+(const Fraction &f2);
-	//Division operator overloading
-	Fraction operator-() const;
+	//Subtraction operator overloading
+	//Fraction operator-(const Fraction &f2);
 	
 	
 	//Negate
-	//friend Fraction operator-()const;
+	//friend Fraction operator-() const;
 	
 	//OutStream operator overloading
 	friend std::ostream& operator<<(std::ostream &out, const Fraction &f1);
