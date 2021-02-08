@@ -12,7 +12,7 @@ int main()
 	std::cout << "Second Fraction: " << -f2 << "\n";
 	std::cout << f1 << " / " << f2 << " = " << f1 / f2 << '\n';
 	std::cout << f1 << " + " << f2 << " = " << f1 + f2 << '\n';
-	std::cout << f1 << " - " << f2 << " = " << f1 - f2 << '\n';
+	//std::cout << f1 << " - " << f2 << " = " << f1 - f2 << '\n';
 	std::cout << f1 << " * " << f2 << " = " << f1 * f2 << '\n';
  
 	return 0;

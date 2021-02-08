@@ -27,66 +27,23 @@ Fraction Fraction::operator/(const Fraction& f2)
 	return Fraction(_n*f2._d, _d * f2._n );
 }
 
-//Subtraction
-Fraction Fraction::operator-(const Fraction& f2)
-{ 
-		Fraction temp;
-								//ab          //bc       
-		temp = Fraction{ _n * f2._d - _d*f2._n, _d * f2._d };
-		//If negative, flip the sign of numerator and denominator
-		if (temp._d < 0)
-			{
-				temp._n *= -1;
-				temp._d *= -1;
-			}
-		return temp;
-}
-
-
 //Addition
 Fraction Fraction::operator+(const Fraction& f2)
 {
-	
-	Fraction temp;
-	
-	temp = Fraction{ _n * f2._d + _d*f2._n, _d * f2._d };
-	//If negative, flip the sign of numerator and denominator
-	if (temp._d < 0)
-		{
-			temp._n *= -1;
-			temp._d *= -1;
-		}
-	return temp;
+	return Fraction{ _n * f2._d + _d*f2._n, _d * f2._d };
 }
 //Multiplication
 Fraction Fraction::operator*(const Fraction& f2)
 {
-	Fraction temp;
-	
-	temp = Fraction{ _n * f2._n, _d * f2._d };
-	//If negative, flip the sign of numerator and denominator
-	if (temp._d < 0)
-		{
-			temp._n *= -1;
-			temp._d *= -1;
-		}
-	return temp;
-	
+	return Fraction{ _n * f2._n, _d * f2._d };
 }
-
-
 //Negation
-Fraction Fraction::operator-()
-{	Fraction temp;
-	
-	
-		temp._n = -1*_n;
-		temp._d = _d;	
-	
-	
-
+Fraction Fraction::operator-()const
+{
+	Fraction temp;
+	temp._n = -_n;
+	temp._d = _d;
 	return temp;
-	
 }
 
 std::ostream& operator<<(std::ostream &out, const Fraction &f1)

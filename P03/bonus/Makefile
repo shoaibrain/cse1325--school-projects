@@ -10,6 +10,8 @@ main.o: main.cpp *.h
 fraction.o: fraction.cpp *.h
 	-$(CXX) $(CXXFLAGS) -c fraction.cpp -o fraction.o
 
+die.gch: fraction.h
+	$(CXX) $(CXXFLAGS) -c fraction.h -o fraction.gch
 
 clean:
 	rm -f *.o *.gch ~* a.out test fraction
