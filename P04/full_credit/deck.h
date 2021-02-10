@@ -1,5 +1,5 @@
-#ifndef __FRACTION_H
-#define __FRACTION_H
+#ifndef __DECK_H
+#define __DECK_H
 
 #include "card.h"
 #include "card.cpp"
@@ -13,6 +13,12 @@ class Deck
 	add_false_answer(std::string false_answer);
 	std::vector <std::string>options();
 	Card:: deal();
+	
+	private:
+		std::vector<Card> _cards;
+		std::vector<Card> _options;
+		int _next_card;
+		
 };
 
 
