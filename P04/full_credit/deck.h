@@ -12,11 +12,11 @@ class Deck
 	add_card(std::string question, std::string answer);
 	add_false_answer(std::string false_answer);
 	std::vector <std::string>options();
-	Card:: deal();
+	Card deal();
 	
 	private:
 		std::vector<Card> _cards;
-		std::vector<Card> _options;
+		std::vector<std:;string> _options;
 		int _next_card;
 		
 };

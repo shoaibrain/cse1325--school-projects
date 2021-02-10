@@ -13,10 +13,10 @@ private:
 public:
 	Card(std::string question, std::string answer);
 	//return type string
-	string attempt(std::string respose);
+	std::string attempt(std::string respose);
 	
 	//OutStream operator overloading
-	friend std::ostream& operator<<(std::ostream &out, const Card &m);
+	friend std::ostream& operator<<(std::ostream& ost, const Card& card);
 	
 };
 
