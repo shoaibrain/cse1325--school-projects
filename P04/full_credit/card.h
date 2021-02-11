@@ -15,7 +15,7 @@ public:
 	//return type string
 	std::string attempt(std::string respose);
 	
-	//OutStream operator overloading
+	//OutStream card
 	friend std::ostream& operator<<(std::ostream& ost, const Card& card);
 	
 };
