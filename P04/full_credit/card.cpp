@@ -1,20 +1,21 @@
 #include "card.h"
 #include <iostream>
-#include <boost/algorithm/string.hpp>
+#include <algorithm>
 #include <string>
- 
+//Constructor for class card
 Card::Card(std::string question, std::string answer):
-	_question{ question }, _answer{ answer }
+	_question{ question }, _answer{ answer } {}
 
+//attemp method: returns string type
 std::string Card::attempt(std::string response)
-{
-	boost::to_upper(response);
+{	//convert the input respose to uppercase
+	transform(response.begin(),response.end(),response.begin(),::toupper);
 	if (response == _answer)
 	{
-		return std::cout<< "Correct!";
+		return "Correct!\n";
 	}
 	else
-	{
-		return std::cout<<"X - Correct answer was "<< _answer;
+	{	return "X - Correct answer was " + _answer + "\n";
+
 	}
 }
