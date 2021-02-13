@@ -56,4 +56,26 @@ int main() {
 	
 	
 	
+	
+	int user_input;
+	
+	do
+	{
+		std::cout<<"Select the number of term for each definition (-1 to exit)\n";
+		
+		//display the list of options
+		
+		
+		//select the question and display
+		std::cin >> user_input;
+		
+		//call card::attempt method
+		card::attempt(response);
+		
+	}
+	while (user_input != -1);
+	
+	
+	
+	
 }
