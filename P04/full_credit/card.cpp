@@ -4,7 +4,7 @@
 #include <string>
 //Constructor for class card
 Card::Card(std::string question, std::string answer):
-	_question{ question }, _answer{ answer } {}
+	_question( question ), _answer( answer ) {}
 
 //attemp method: returns string type
 std::string Card::attempt(std::string response)

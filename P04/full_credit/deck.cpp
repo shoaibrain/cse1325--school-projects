@@ -12,9 +12,8 @@
 //vector <std::string> _options;
 
 
-Deck::Deck(Card cards, std::string options,int next_card,std::string question,std::string answer)
-	:Card{ question, answer},  //call Card(question,answer) constructor
-	 _cards{cards},_options{options}, _next_card{next_card} //Deck Class
+Deck::Deck(int next_card)
+	: _next_card{next_card} //Deck Class
 	{}
 
 //method add_card
@@ -23,33 +22,33 @@ void add_card(std::string question, std::string answer)
 	//Create a card object with question and answer
 	card = Card(question,answer);
 	//add card into vector _cards
-	Deck::_cards.push(card);
+	_cards.push_back(card);
 	
 	
 	//push answer parameter to vector _options
-	Deck::_options.push(answer);
+	_options.push_back(answer);
 	
 
 } 
 //Sort in alphabetical order
-bool mycomp(std::string a, std::string b){
+//bool mycomp(std::string a, std::string b){
 	//returns 1 if string a is alphabetically 
 	//less than string b
 	//quite similar to strcmp operation
-	return a < b;
-}
+	//return a < b;
+//}
 
 //method add_false_answer
 void add_false_answer(std::string false_answer)
 {		//add false answers to the vector _options
-		Deck::_options.push(false_answer);
+		_options.push_back(false_answer);
 }
 
 //method options returns a copy of vector string _options
 std::vector <std::string> _options(_options)
 {
 	//sort the _options vector
-	std::sort(_options.begin(),_options.end(), mycomp);
+	std::sort(_options.begin(),_options.end());
 	
 	return _options;
 	

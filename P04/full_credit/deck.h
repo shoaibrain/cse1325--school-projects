@@ -5,10 +5,10 @@
 #include <string>
 #include <vector>
 
-class Deck : public Card
+class Deck
 {
 	public:
-	Deck(Card cards, std::string options,int next_card,std::string question,std::string answer);
+	Deck(int next_card =0);
 	void add_card(std::string question, std::string answer);
 	void add_false_answer(std::string false_answer);
 	std::vector <std::string>options();

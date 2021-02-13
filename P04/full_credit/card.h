@@ -16,7 +16,7 @@ public:
 	std::string attempt(std::string respose);
 	
 	//OutStream card
-	friend std::ostream& operator<<(std::ostream& ost, const Card& card);
+	friend std::ostream& operator<<(const std::ostream& ost, const Card& card);
 	
 };
 
