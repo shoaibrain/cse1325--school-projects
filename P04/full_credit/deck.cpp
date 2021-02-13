@@ -1,5 +1,5 @@
 #include "deck.h"
-#include "card.cpp"
+#include "card.h"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -17,12 +17,11 @@ Deck::Deck(int next_card)
 	{}
 
 //method add_card
-void add_card(std::string question, std::string answer)
-{
+void Deck::add_card(std::string question, std::string answer)
+{    
 	//Create a card object with question and answer
-	card = Card(question,answer);
 	//add card into vector _cards
-	_cards.push_back(card);
+	_cards.push_back(Card(question,answer));
 	
 	
 	//push answer parameter to vector _options
@@ -39,13 +38,13 @@ void add_card(std::string question, std::string answer)
 //}
 
 //method add_false_answer
-void add_false_answer(std::string false_answer)
+void Deck::add_false_answer(std::string false_answer)
 {		//add false answers to the vector _options
 		_options.push_back(false_answer);
 }
 
 //method options returns a copy of vector string _options
-std::vector <std::string> _options(_options)
+std::vector <std::string> Deck::options()
 {
 	//sort the _options vector
 	std::sort(_options.begin(),_options.end());

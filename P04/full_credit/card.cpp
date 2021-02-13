@@ -1,4 +1,5 @@
 #include "card.h"
+#include "deck.h"
 #include <iostream>
 #include <algorithm>
 #include <string>
