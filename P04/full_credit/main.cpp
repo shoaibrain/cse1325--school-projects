@@ -40,16 +40,19 @@ int main() {
 	std::string answer11 = "Exception ";
 	
     //create question answer card
-	card1 = Card(question,answer);
-	card2 = Card(question,answer);
-	card3 = Card(question,answer);
-	card4 = Card(question,answer);
-	card5 = Card(question,answer);
-	card6 = Card(question,answer);
-	card7 = Card(question,answer);
-	card8 = Card(question,answer);
-	card9 = Card(question,answer);
-	card10 = Card(question,answer);
+	card1 = Card(question1,answer1);
+	card2 = Card(question2,answer2);
+	card3 = Card(question3,answer3);
+	card4 = Card(question4,answer4);
+	card5 = Card(question5,answer5);
+	card6 = Card(question6,answer6);
+	card7 = Card(question7,answer7);
+	card8 = Card(question8,answer8);
+	card9 = Card(question9,answer9);
+	card10 = Card(question10,answer10);
+	card11 = Card(question11,answer11);
+	
+	
 	
 	
 	
