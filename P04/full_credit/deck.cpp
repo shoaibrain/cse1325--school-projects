@@ -1,5 +1,4 @@
 #include "deck.h"
-#include "card.h"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -13,7 +12,7 @@
 
 
 Deck::Deck(int next_card)
-	: _next_card{next_card} //Deck Class
+	: _next_card(next_card) //Deck Class
 	{}
 
 //method add_card
@@ -29,13 +28,7 @@ void Deck::add_card(std::string question, std::string answer)
 	
 
 } 
-//Sort in alphabetical order
-//bool mycomp(std::string a, std::string b){
-	//returns 1 if string a is alphabetically 
-	//less than string b
-	//quite similar to strcmp operation
-	//return a < b;
-//}
+
 
 //method add_false_answer
 void Deck::add_false_answer(std::string false_answer)

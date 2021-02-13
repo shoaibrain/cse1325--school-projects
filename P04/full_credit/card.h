@@ -1,7 +1,6 @@
 #ifndef __FRACTION_H
 #define __FRACTION_H
 
-#include "deck.h"
 #include <iostream>
 #include <string>
  
