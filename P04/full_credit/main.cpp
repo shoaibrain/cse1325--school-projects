@@ -41,16 +41,16 @@ int main() {
 	
     //create question answer card
 	card1 = Card(question1,answer1);
-	card2 = Card(question2,answer2);
-	card3 = Card(question3,answer3);
-	card4 = Card(question4,answer4);
-	card5 = Card(question5,answer5);
-	card6 = Card(question6,answer6);
-	card7 = Card(question7,answer7);
-	card8 = Card(question8,answer8);
-	card9 = Card(question9,answer9);
-	card10 = Card(question10,answer10);
-	card11 = Card(question11,answer11);
+	//card2 = Card(question2,answer2);
+	//card3 = Card(question3,answer3);
+	//card4 = Card(question4,answer4);
+	//card5 = Card(question5,answer5);
+	//card6 = Card(question6,answer6);
+	//card7 = Card(question7,answer7);
+	//card8 = Card(question8,answer8);
+	//card9 = Card(question9,answer9);
+	//card10 = Card(question10,answer10);
+	//card11 = Card(question11,answer11);
 	
 	
 	
@@ -64,15 +64,22 @@ int main() {
 		std::cout<<"Select the number of term for each definition (-1 to exit)\n";
 		
 		//display the list of options
+		for (int i = 0; i < deck::_options.size(); i++)
+		{
+			std::cout<<i << ') ' << deck::_options <<"\n"; 
+		}
 		
+		//display the question here
 		
 		//select the question and display
 		std::cin >> user_input;
 		
+		
+		response = get key from _cards
 		//call card::attempt method
 		card::attempt(response);
 		
-	}
+	}s
 	while (user_input != -1);
 	
 	
