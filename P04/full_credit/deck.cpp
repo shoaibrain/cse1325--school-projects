@@ -1,8 +1,12 @@
 #include "deck.h"
+#include "card.h"
 #include <iostream>
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <random>
+#include <ctime>
+#include <cstdlib>
 
 //Create an empty vector for cards of type Card
 //vector <Card> _cards;
@@ -34,6 +38,26 @@ void Deck::add_card(std::string question, std::string answer)
 void Deck::add_false_answer(std::string false_answer)
 {		//add false answers to the vector _options
 		_options.push_back(false_answer);
+}
+
+Card Deck::deal()
+{
+	
+	//All cards have been dealt. Shuffle the card and reset _next_card = 0		
+	if (_next_card >= _cards.size())
+	{
+		
+		std::random_shuffle ( _cards.begin(), _cards.end() );
+		_next_card = 0;
+	
+	}
+	
+	//otherwise return reference to the card at that number
+	Card obj = _cards[_next_card];
+	//increment card
+	_next_card +=1;
+	
+	return obj;
 }
 
 //method options returns a copy of vector string _options
