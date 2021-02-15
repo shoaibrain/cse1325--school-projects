@@ -3,6 +3,7 @@
 #include "deck.h"
 #include <iostream>
 #include <string>
+#include <vector>
 
 int main() {
 	
@@ -65,22 +66,29 @@ int main() {
 	{
 		std::cout<<"Select the number of term for each definition (-1 to exit)\n";
 		
+		std::vector<std::string> current_options = deck1.options();
 		//display the list of options
-		for (int i = 0; i < deck1._options.size(); i++)
+		for (int i = 0; i < deck1.option_size(); i++)
 		{
-			std::cout<<i << ") " << deck1._options[i] <<"\n"; 
+			std::cout<<i << ") " << current_options[i] <<"\n"; 
 		}
+		//deck1.options();
 		
-		//display the question here
-		std::cout << deck1.deal();
-	
-		//select the question and display
+		//Deck::deal a card
+		Card card = deck1.deal();
+		
+		
+		//display the question 
+		std::cout<<card;
+		
+		//take user input for the answer
 		std::cin >> user_input;
 		
+		//get answer from _option at index user_input
+		std::string response = current_options[user_input];
 		
-		std::string response = deck1._options[user_input];
-		//call card::attempt method
-		.attempt(response);
+		//pass the answer to card::attempt to see if it matches on the card
+		card.attempt(response);
 		
 	}
 	while (user_input != -1);

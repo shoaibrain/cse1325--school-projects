@@ -27,6 +27,11 @@ void Deck::add_card(std::string question, std::string answer)
 
 } 
 
+int Deck::option_size()
+{
+	return _options.size();
+}
+
 
 //method add_false_answer
 void Deck::add_false_answer(std::string false_answer)

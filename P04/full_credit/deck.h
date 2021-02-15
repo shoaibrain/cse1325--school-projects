@@ -13,6 +13,7 @@ class Deck
 	void add_false_answer(std::string false_answer);
 	std::vector <std::string>options();
 	Card deal();
+	int option_size();
 	
 	private:
 		std::vector<Card> _cards;
