@@ -40,23 +40,25 @@ int main() {
 	std::string answer11 = "Exception ";
 	
     //create question answer card
-	card1 = Card(question1,answer1);
-	//card2 = Card(question2,answer2);
-	//card3 = Card(question3,answer3);
-	//card4 = Card(question4,answer4);
-	//card5 = Card(question5,answer5);
-	//card6 = Card(question6,answer6);
-	//card7 = Card(question7,answer7);
-	//card8 = Card(question8,answer8);
-	//card9 = Card(question9,answer9);
-	//card10 = Card(question10,answer10);
-	//card11 = Card(question11,answer11);
+	
+	Deck deck1;
+	
+	deck1.add_card(question1,answer1);
+	deck1.add_card(question1,answer1);
+	deck1.add_card(question1,answer1);
+	deck1.add_card(question1,answer1);
+	deck1.add_card(question1,answer1);
+	deck1.add_card(question1,answer1);
+	deck1.add_card(question1,answer1);
+	deck1.add_card(question1,answer1);
+	deck1.add_card(question1,answer1);
+	deck1.add_card(question1,answer1);
+	deck1.add_card(question1,answer1);
+	deck1.add_false_answer("false answer 1");
+	deck1.add_false_answer("false answer 2");
 	
 	
-	
-	
-	
-	
+		
 	int user_input;
 	
 	do
@@ -69,13 +71,14 @@ int main() {
 			std::cout<<i << ') ' << deck::_options <<"\n"; 
 		}
 		
+		std::cout << deck1[]
 		//display the question here
 		
 		//select the question and display
 		std::cin >> user_input;
 		
 		
-		response = get key from _cards
+		response = _options[user_input];
 		//call card::attempt method
 		card::attempt(response);
 		
