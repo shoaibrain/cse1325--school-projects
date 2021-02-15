@@ -66,23 +66,23 @@ int main() {
 		std::cout<<"Select the number of term for each definition (-1 to exit)\n";
 		
 		//display the list of options
-		for (int i = 0; i < deck::_options.size(); i++)
+		for (int i = 0; i < deck1._options.size(); i++)
 		{
-			std::cout<<i << ') ' << deck::_options <<"\n"; 
+			std::cout<<i << ") " << deck1._options[i] <<"\n"; 
 		}
 		
-		std::cout << deck1[]
 		//display the question here
-		
+		std::cout << deck1.deal();
+	
 		//select the question and display
 		std::cin >> user_input;
 		
 		
-		response = _options[user_input];
+		std::string response = deck1._options[user_input];
 		//call card::attempt method
-		card::attempt(response);
+		.attempt(response);
 		
-	}s
+	}
 	while (user_input != -1);
 	
 	

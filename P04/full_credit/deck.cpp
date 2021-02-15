@@ -8,12 +8,6 @@
 #include <ctime>
 #include <cstdlib>
 
-//Create an empty vector for cards of type Card
-//vector <Card> _cards;
-
-//Create an empty vector for cards of type Card
-//vector <std::string> _options;
-
 
 Deck::Deck(int next_card)
 	: _next_card(next_card) //Deck Class
