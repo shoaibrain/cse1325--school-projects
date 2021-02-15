@@ -10,7 +10,7 @@ Card::Card(std::string question, std::string answer):
 std::string Card::attempt(std::string response)
 {	//convert the input respose to uppercase
 	transform(response.begin(),response.end(),response.begin(),::toupper);
-	if (response == _answer)
+	if (this->_answer == response)
 	{
 		return "Correct!\n";
 	}

@@ -45,16 +45,16 @@ int main() {
 	Deck deck1;
 	
 	deck1.add_card(question1,answer1);
-	deck1.add_card(question1,answer1);
-	deck1.add_card(question1,answer1);
-	deck1.add_card(question1,answer1);
-	deck1.add_card(question1,answer1);
-	deck1.add_card(question1,answer1);
-	deck1.add_card(question1,answer1);
-	deck1.add_card(question1,answer1);
-	deck1.add_card(question1,answer1);
-	deck1.add_card(question1,answer1);
-	deck1.add_card(question1,answer1);
+	deck1.add_card(question2,answer2);
+	deck1.add_card(question3,answer3);
+	deck1.add_card(question4,answer4);
+	deck1.add_card(question5,answer5);
+	deck1.add_card(question6,answer6);
+	deck1.add_card(question7,answer7);
+	deck1.add_card(question8,answer8);
+	deck1.add_card(question9,answer9);
+	deck1.add_card(question10,answer10);
+	deck1.add_card(question11,answer11);
 	deck1.add_false_answer("false answer 1");
 	deck1.add_false_answer("false answer 2");
 	
@@ -64,7 +64,7 @@ int main() {
 	
 	do
 	{
-		std::cout<<"Select the number of term for each definition (-1 to exit)\n";
+		std::cout<<"Select the number of term for each definition (-1 to exit)\n\n";
 		
 		std::vector<std::string> current_options = deck1.options();
 		//display the list of options
@@ -79,7 +79,7 @@ int main() {
 		
 		
 		//display the question 
-		std::cout<<card;
+		std::cout<<card<<" : ";
 		
 		//take user input for the answer
 		std::cin >> user_input;
