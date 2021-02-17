@@ -1,5 +1,5 @@
-#ifndef __CARD_H
-#define __CARD_H
+#ifndef __HINTCARD_H
+#define __HINTCARD_H
 
 #include <iostream>
 #include <string>
