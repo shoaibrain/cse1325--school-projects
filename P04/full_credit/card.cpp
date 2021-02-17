@@ -8,9 +8,14 @@ Card::Card(std::string question, std::string answer):
 
 //attemp method: returns string type
 std::string Card::attempt(std::string response)
-{	//convert the input respose to uppercase
-	transform(response.begin(),response.end(),response.begin(),::toupper);
-	if (this->_answer == response)
+{	
+	std::string correct_answer = this->_answer;
+	//convert the input respose to uppercase
+	transform(response.begin(),response.end(), response.begin(),::toupper);
+	transform(correct_answer.begin(),correct_answer.end(),correct_answer.begin(),::toupper);
+	
+	
+	if (correct_answer == response)
 	{
 		return "Correct!\n";
 	}

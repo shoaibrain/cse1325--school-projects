@@ -88,7 +88,7 @@ int main() {
 		std::string response = current_options[user_input];
 		
 		//pass the answer to card::attempt to see if it matches on the card
-		card.attempt(response);
+		std::cout<<card.attempt(response);
 		
 	}
 	while (user_input != -1);
