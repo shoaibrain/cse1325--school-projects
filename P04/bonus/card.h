@@ -13,7 +13,7 @@ private:
 public:
 	Card(std::string question, std::string answer);
 	//return type string
-	std::string attempt(std::string respose);
+	virtual std::string attempt(std::string respose);
 	
 	//OutStream card
 	friend std::ostream& operator<<(std::ostream& ost, const Card& card);

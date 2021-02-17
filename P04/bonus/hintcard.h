@@ -3,20 +3,19 @@
 
 #include <iostream>
 #include <string>
+
+#include "card.h"
  
-class Card
+class Hintcard: public Card
 {
-private:
-	std::string _question;
-	std::string _answer;
+protected:
+	std::string _hint;
  
 public:
-	Card(std::string question, std::string answer);
+	//constructor
+	Hintcard(std::string question, std::string answer,std::string hint);
 	//return type string
-	std::string attempt(std::string respose);
-	
-	//OutStream card
-	friend std::ostream& operator<<(std::ostream& ost, const Card& card);
+	std::string attempt(std::string respose) override;
 	
 };
 
