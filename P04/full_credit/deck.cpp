@@ -43,14 +43,18 @@ Card Deck::deal()
 {
 	
 	//All cards have been dealt. Shuffle the card and reset _next_card = 0		
-	if (_next_card >= _cards.size())
+	
+	if (_cards.size() == 0)
+	{
+	throw std::runtime_error{"No cards in deck."};
+	}
+	else if (_next_card >= _cards.size())
 	{
 		
 		std::random_shuffle ( _cards.begin(), _cards.end() );
 		_next_card = 0;
 	
 	}
-	
 	//otherwise return reference to the card at that number
 	Card obj = _cards[_next_card];
 	//increment card

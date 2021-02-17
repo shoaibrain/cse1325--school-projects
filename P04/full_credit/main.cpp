@@ -46,17 +46,18 @@ int main() {
 	
 	deck1.add_card(question1,answer1);
 	deck1.add_card(question2,answer2);
+	deck1.add_false_answer("Polymorphism");
 	deck1.add_card(question3,answer3);
 	deck1.add_card(question4,answer4);
 	deck1.add_card(question5,answer5);
 	deck1.add_card(question6,answer6);
+	deck1.add_false_answer("Data Structure");
 	deck1.add_card(question7,answer7);
 	deck1.add_card(question8,answer8);
+	deck1.add_false_answer("Object");
 	deck1.add_card(question9,answer9);
 	deck1.add_card(question10,answer10);
 	deck1.add_card(question11,answer11);
-	deck1.add_false_answer("false answer 1");
-	deck1.add_false_answer("false answer 2");
 	
 	
 		
