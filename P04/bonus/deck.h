@@ -16,7 +16,7 @@ class Deck
 	int option_size();
 	
 	private:
-		std::vector<*Card> _cards;
+		std::vector<Card*> _cards;
 		std::vector<std::string> _options;
 		int _next_card;
 		

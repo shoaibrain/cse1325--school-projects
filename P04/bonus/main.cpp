@@ -27,6 +27,7 @@ int main() {
 	
 	std::string question7 = "A data type consisting of a fixed set of constant values";
 	std::string answer7 = "Enumerated type ";
+	std::string hint7 = "It is a custom type";
 	
 	std::string question8 = "A class or a function (NOT a method!) that is granted access to its friend class’ privatemembers";
 	std::string answer8 = "Friend";
@@ -39,6 +40,7 @@ int main() {
 	
 	std::string question11 = "An object created to represent an error or other unusual occurrence and then propagatedvia special mechanisms until caught by special handling code";
 	std::string answer11 = "Exception ";
+	std::string hint11 = "Handling an error";
 	
     //create question answer card
 	

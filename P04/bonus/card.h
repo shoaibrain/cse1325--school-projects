@@ -6,7 +6,7 @@
  
 class Card
 {
-private:
+protected:
 	std::string _question;
 	std::string _answer;
  

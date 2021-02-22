@@ -14,10 +14,11 @@ Deck::Deck(int next_card)
 	{}
 
 //method add_card
-void Deck::add_card(std::string question, std::string answer)
+void Deck::add_card(std::string question, std::string answer,std::string hint)
 {    
 	//Create a card object with question and answer
 	//add card into vector _cards
+	
 	_cards.push_back(Card(question,answer));
 	
 	
