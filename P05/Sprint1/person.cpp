@@ -9,12 +9,12 @@ Person::Person (std::string get_name,std::string get_email):
 //to_string. return name of the person
 std::string Person::to_string()
 {
-	
+	return "Student Name: " + Person::name;
 }
-//return email in parentheses
+//return name and (email)
 std::string Person::full_info()
 {
-	
+	return Person::name + " (" + Person:email +" )"; 
 }
 
 
