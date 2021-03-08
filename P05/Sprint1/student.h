@@ -1,25 +1,27 @@
 #ifndef __STUDENT_H
-#define 
+#define __STUDENT_H
 
 
 #include <string>
 #include <vector>
+#include "person.h"
 
-Parent Parent;
+
+class Parent;
 
 class Student: public Person {
 	using Person::Person;
 	public:
-		Student(std::string name, std::string email,int grade);
-		void add_parent(Parent& parent);
-		int parents();
+		Student(std::string name, std::string email,int grade);  //Constructor
+		void add_parent(Parent& parent);    //add 
+		int parents();             //number of parent 
 		Parent& parent(int index);
 		std::string full_info() const override;
 	protected:
 		int grade;
-		std::vector<Parent*> parents;
+		std::vector<Parent*> _parents;
 
 		
-}
+};
 
 #endif

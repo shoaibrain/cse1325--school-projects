@@ -10,7 +10,7 @@ public:
 	//Class constructor
 	Person(std::string name,std::string email);
 	std::string to_string();
-	virtual std::string full_info();
+	virtual std::string full_info() const;
 	//OutStream person
 	friend std::ostream& operator<<(std::ostream& ost, const Person& person);
 protected:

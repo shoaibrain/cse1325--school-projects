@@ -1,6 +1,6 @@
 #include "student.h"
 #include "parent.h"
-
+#include <iostream>
 int main() {
     std::vector<Person*> people;
     Student s1{"Enrique Young", "eyoung@gmale.com", 1};

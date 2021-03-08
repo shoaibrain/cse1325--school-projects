@@ -8,27 +8,28 @@ Student::Student(std::string get_name, std::string get_email,int get_grade)
 	
 void Student::add_parent(Parent& parent)
 {
-	//pass
+	_parents.push_back(&parent);  //How to actually append address pointers? 
 	
 }
 
 int Student::parents()
 {
 	//returns the size of vector parents
-	return Student::parents.size();
+	return Student::_parents.size();
 }
 
 Parent& parent (int index)
 {
 	//returns parent at index
-	if (index < 0 || index > Student::parents.size())
+	if (index < 0 || index > Student::_parents.size())
 		throw std::out_of_range("Invalid Index");
 		
-	return Student::parents[index];
+	return *Student::_parents.at(index);
 }
 
 std::string Student::full_info() const
 {
 	//returns everything in base class plus student's grade and parent's name
-	return Student::grade + Student::parent;
+	//return Student.grade + Student.parent;
+	return Student::name + " (" + Student::email + " )" + "Grade: " +Student::grade + " Parents: "+ Student::parents; 
 }
