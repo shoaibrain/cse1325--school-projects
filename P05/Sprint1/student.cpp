@@ -18,18 +18,18 @@ int Student::parents()
 	return Student::_parents.size();
 }
 
-Parent& parent (int index)
+Parent& Student::parent (int index)
 {
 	//returns parent at index
 	if (index < 0 || index > Student::_parents.size())
 		throw std::out_of_range("Invalid Index");
 		
-	return *Student::_parents.at(index);
+	return *_parents.at(index);
 }
 
 std::string Student::full_info() const
-{
+{   
 	//returns everything in base class plus student's grade and parent's name
 	//return Student.grade + Student.parent;
-	return Student::name + " (" + Student::email + " )" + "Grade: " +Student::grade + " Parents: "+ Student::parents; 
+	return Student::name + " (" + Student::email + " )" + "Grade: " +std::to_string(Student::grade) + " Parents: "+ *_parents;
 }

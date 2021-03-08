@@ -17,7 +17,7 @@ person.o: person.cpp *.h
 parent.o: parent.cpp *.h
 	$(CXX) $(CXXFLAGS) parent.cpp -c -o parent.o
 
-student.o: student.cpp * .h
+student.o: student.cpp *.h
 	$(CXX) $(CXXFLAGS) student.cpp -c -o student.o
 	
 clean: 
