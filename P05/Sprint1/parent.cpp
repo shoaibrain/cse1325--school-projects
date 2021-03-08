@@ -29,11 +29,14 @@ Student& Parent::student (int index)
 }
 
 std::string Parent::full_info() const
-{
+{    
+	std::string s;
+	
+	for (auto& ptr: _students){
+		
+	   s += ptr->to_string() + ", ";
+	}
 	//returns everything in base class plus parent's student (students under parent)
 	//return Parent.students;
-	return Parent::name + " (" + Parent::email + " )";
+	return Parent::name + " (" + Parent::email + " )" + ", Students: " + s;
 }
-
-
-//return Person::name + " (" + Person::email + " )"; 

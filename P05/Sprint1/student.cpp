@@ -30,18 +30,12 @@ Parent& Student::parent (int index)
 std::string Student::full_info() const
 {   std::string p;
     
-	//for (auto& it: _parents){
+	for (auto& ptr: _parents){
 		
-	//    p.append(", " + it->to_string());
-	//}
-	
-	auto begin{&_parents[0]};
-	auto end{ begin + std::size(_parents) };
-	for (auto ptr{ begin }; ptr != end; ++ptr){
-		p.append(", " + ptr->to_string());
+	   p += ptr->to_string() + " ,";
 	}
 	
 	//returns everything in base class plus student's grade and parent's name
 	//return Student.grade + Student.parent;
-	return Student::name + " (" + Student::email + " )" + "Grade: " +std::to_string(Student::grade) + " Parents: " + p;
+	return Student::name + " (" + Student::email + " )" + ", Grade: " +std::to_string(Student::grade) + ", Parents: " + p;
 }
