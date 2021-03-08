@@ -5,11 +5,11 @@ all: smart
 debug: CXXFLAGS += -g
 debug: smart
 
-smart: main.o person.o parent.o student.o *.h
-	$(CXX) $(CXXFLAGS) main.o person.o parent.o student.o  -o smart
+smart: cli.o person.o parent.o student.o *.h
+	$(CXX) $(CXXFLAGS) cli.o person.o parent.o student.o  -o smart
 	
-main.o: main.cpp *.h
-	$(CXX) $(CXXFLAGS) main.cpp -c -o main.o
+cli.o: cli.cpp *.h
+	$(CXX) $(CXXFLAGS) cli.cpp -c -o cli.o
 
 person.o: person.cpp *.h
 	$(CXX) $(CXXFLAGS) person.cpp -c -o person.o
