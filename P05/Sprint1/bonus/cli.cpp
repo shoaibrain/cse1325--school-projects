@@ -4,25 +4,54 @@
 #include <vector>
 #include <string>
 
-std::vector<Person*> people;
+//std::vector<Person*> people;
+std::vector<Student*> _student;
+std::vector<Parent*> _parent;
 
 void add_parent(){
+	
 	std::string name;
 	std::string email;
 	
 	std::cout << "Enter parent's name: ";
-	std::cin >> name;
+	std::getline(std::cin, name);
+	std::cin.ignore();
 	
 	std::cout << "Enter parent's email: ";
-	std::cin >> email;
-	//Create parent object
-	Parent p1_1{name, email};
-	//Push parent object in person vector
-	people.push_back(&p1_1);
+	std::getline(std::cin,email);
+	std::cin.ignore();
 	
+	//Create parent object
+	Parent p1{name, email};
+	//Push parent object in person vector
+	_parent.push_back(&p1);
+	return;
 };
 
 void add_student(){
+	
+	std::string name;
+	std::string email;
+	int grade;
+	//ask student name
+	std::cout << "Enter student's name: ";
+	std::getline(std::cin, name);
+	std::cin.ignore();
+	//ask student email
+	std::cout << "Enter student's email: ";
+	std::getline(std::cin,email);
+	std::cin.ignore();
+	//ask student grade
+	std::cout << "Enter student's grade: ";
+	std::cin >> grade;
+	std::cin.ignore();
+	
+	//Create student object
+	Student s1{name, email,grade};
+	//Push parent object in person vector
+	_student.push_back(&s1);
+	return;
+	
 	
 };
 
@@ -32,10 +61,21 @@ void pair(){
 
 void list_student(){
 	
+	for(auto p : _student)
+	{
+       std::cout<< "full_info(): " << p->full_info() << "\n\n";
+	}
+	return;
+	
 };
 
 void list_parent(){
 	
+	for(auto p : _parent)
+	{
+       std::cout<< "full_info(): " << p->full_info() << "\n\n";
+	}
+	return;
 };
 
 void run(){
@@ -49,6 +89,7 @@ void run(){
 	
 	std::cout << "\nEnter the number corresponding to your choice: ";
 	std::cin >> option;
+	std::cin.ignore();
 	
 	if (option == 1)
 		add_parent();
