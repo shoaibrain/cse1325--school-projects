@@ -7,13 +7,14 @@ debug: CXXFLAGS += -g
 debug: mainwin
 
 mainwin: main.o mainwin.o person.o student.o parent.o *.h
-	$(CXX) $(CXXFLAGS) main.o mainwin.o person.o student.o parent.o -o smart
+	$(CXX) $(CXXFLAGS) main.o mainwin.o person.o student.o parent.o  $(GTKFLAGS) -o smart
 
-smart: main.o person.o student.o parent.o *.h
-	$(CXX) $(CXXFLAGS) main.o person.o student.o parent.o -o smart
 
 main.o: main.cpp *.h
-	$(CXX) $(CXXFLAGS) -c main.cpp -o main.o
+	$(CXX) $(CXXFLAGS) -c main.cpp -o $(GTKFLAGS) main.o
+
+mainwin.o: mainwin.cpp *.h
+	$(CXX) $(CXXFLAGS) -c mainwin.cpp $(GTKFLAGS) -o mainwin.o
 
 person.o: person.cpp *.h
 	-$(CXX) $(CXXFLAGS) -c person.cpp -o person.o
