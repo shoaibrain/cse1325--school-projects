@@ -11,7 +11,7 @@ mainwin: main.o mainwin.o person.o student.o parent.o *.h
 
 
 main.o: main.cpp *.h
-	$(CXX) $(CXXFLAGS) -c main.cpp -o $(GTKFLAGS) main.o
+	$(CXX) $(CXXFLAGS) -c main.cpp $(GTKFLAGS) -o main.o
 
 mainwin.o: mainwin.cpp *.h
 	$(CXX) $(CXXFLAGS) -c mainwin.cpp $(GTKFLAGS) -o mainwin.o
