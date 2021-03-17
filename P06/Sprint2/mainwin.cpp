@@ -30,10 +30,10 @@ Mainwin::Mainwin() {
     Gtk::Menu *filemenu = Gtk::manage(new Gtk::Menu());
     menuitem_file->set_submenu(*filemenu);
 
-    //         N E W   G A M E
+    //         N E W   School
     // Append New to the File menu
     Gtk::MenuItem *menuitem_new = Gtk::manage(new Gtk::MenuItem("_New School", true));
-    menuitem_new->signal_activate().connect([this] {this->on_new_parent_click();});
+    menuitem_new->signal_activate().connect([this] {this->on_new_school_click();});
     filemenu->append(*menuitem_new);
 
     //         Q U I T
@@ -42,7 +42,41 @@ Mainwin::Mainwin() {
     menuitem_quit->signal_activate().connect([this] {this->on_quit_click();});
     filemenu->append(*menuitem_quit);
 
+	//     INSERT
+    // Create a insert menu and add to the menu bar
+    Gtk::MenuItem *menuitem_insert = Gtk::manage(new Gtk::MenuItem("_Insert", true));
+    menubar->append(*menuitem_insert);
+    Gtk::Menu *insertmenu = Gtk::manage(new Gtk::Menu());
+    menuitem_insert->set_submenu(*insertmenu);
+	
+	//           NEW STUDENT
+    // Append New Student to the INSERT menu
+    Gtk::MenuItem *menuitem_new_student = Gtk::manage(new Gtk::MenuItem("_New Student", true));
+    menuitem_new_student->signal_activate().connect([this] {this->on_new_student_click();});
+    insertmenu->append(*menuitem_new_student);
+	
+	//           NEW PARENT
+    // Append New parent to the INSERT menu
+    Gtk::MenuItem *menuitem_new_parent = Gtk::manage(new Gtk::MenuItem("_New Parent", true));
+    menuitem_new_parent->signal_activate().connect([this] {this->on_new_parent_click();});
+    insertmenu->append(*menuitem_new_parent);
 
+	//     RELATE
+    // Create a relate menu and add to the menu bar
+    Gtk::MenuItem *menuitem_relate = Gtk::manage(new Gtk::MenuItem("_Relate", true));
+    menubar->append(*menuitem_relate);
+    Gtk::Menu *relatemenu = Gtk::manage(new Gtk::Menu());
+    menuitem_relate->set_submenu(*relatemenu);
+	
+	
+	//           NEW STUDENT
+    // Append New Student to the INSERT menu
+    Gtk::MenuItem *menuitem_student_to_parent = Gtk::manage(new Gtk::MenuItem("_Student to Parent", true));
+    menuitem_student_to_parent->signal_activate().connect([this] {this->on_student_parent_click();});
+    relatemenu->append(*menuitem_student_to_parent);
+
+	vbox-> show_all();
+	
 
 }
 Mainwin::~Mainwin(){}
