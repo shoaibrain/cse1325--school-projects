@@ -7,7 +7,7 @@
 #include "student.h"
 #include "parent.h"
 
-class Mainwin : public Gtk::window{
+class Mainwin : public Gtk::Window{
 	public:
 		Mainwin();
 		virtual ~Mainwin();

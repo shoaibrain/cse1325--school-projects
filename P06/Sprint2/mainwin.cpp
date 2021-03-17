@@ -2,7 +2,7 @@
 #include "mainwin.h"
 #include <iostream> // for std::cerr logging
 
-Mainwin::Mainwin() : nim{nullptr} {
+Mainwin::Mainwin() {
 
 
     // /////////////////
@@ -22,55 +22,9 @@ Mainwin::Mainwin() : nim{nullptr} {
     Gtk::MenuBar *menubar = Gtk::manage(new Gtk::MenuBar);
     vbox->pack_start(*menubar, Gtk::PACK_SHRINK, 0);
     // vbox->add(*menubar);
-	
-	// F I L E
-    // Create a File menu and add to the menu bar
-    Gtk::MenuItem *menuitem_file = Gtk::manage(new Gtk::MenuItem("_File", true));
-    menubar->append(*menuitem_file);
-    Gtk::Menu *filemenu = Gtk::manage(new Gtk::Menu());
-    menuitem_file->set_submenu(*filemenu);
-	
-    //         N E W   SMART
-    // Append New to the File menu
-    Gtk::MenuItem *menuitem_new = Gtk::manage(new Gtk::MenuItem("_New School", true));
-    menuitem_new->signal_activate().connect([this] {this->on_new_game_click();});
-    filemenu->append(*menuitem_new);
-
-    //         Q U I T
-    // Append Quit to the File menu
-    Gtk::MenuItem *menuitem_quit = Gtk::manage(new Gtk::MenuItem("_Quit", true));
-    menuitem_quit->signal_activate().connect([this] {this->on_quit_click();});
-    filemenu->append(*menuitem_quit);
-
-    //     INSERT
-    // Create a insert menu and add to the menu bar
-    Gtk::MenuItem *menuitem_file = Gtk::manage(new Gtk::MenuItem("_Insert", true));
-    menubar->append(*menuitem_file);
-    Gtk::Menu *filemenu = Gtk::manage(new Gtk::Menu());
-    menuitem_file->set_submenu(*filemenu);
-	
-	//New Student
-    Gtk::MenuItem *menuitem_new = Gtk::manage(new Gtk::MenuItem("_New Student", true));
-    menuitem_new->signal_activate().connect([this] {this->on_new_game_click();});
-    filemenu->append(*menuitem_new);	
-	
-	
-	//New Parent
-    Gtk::MenuItem *menuitem_new = Gtk::manage(new Gtk::MenuItem("_New Parent", true));
-    menuitem_new->signal_activate().connect([this] {this->on_new_game_click();});
-    filemenu->append(*menuitem_new);
 
 
-    //     Relate
-    // MenuBar to relate student and parent
-    Gtk::MenuItem *menuitem_file = Gtk::manage(new Gtk::MenuItem("_Relate", true));
-    menubar->append(*menuitem_file);
-    Gtk::Menu *filemenu = Gtk::manage(new Gtk::Menu());
-    menuitem_file->set_submenu(*filemenu);
-	
-	//STUDENT TO PARENT
-	Gtk::MenuItem *menuitem_new = Gtk::manage(new Gtk::MenuItem("_Student to Parent", true));
-    menuitem_new->signal_activate().connect([this] {this->on_new_game_click();});
-    filemenu->append(*menuitem_new);
+
+
 
 }
