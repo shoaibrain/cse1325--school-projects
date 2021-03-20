@@ -9,7 +9,7 @@ Mainwin::Mainwin() {
     // G U I   S E T U P
     // /////////////////
 
-    set_default_size(600, 300);
+    set_default_size(500, 300);
     set_title("The SMART System");
 
     // Put a vertical box container as the Window contents
@@ -69,11 +69,20 @@ Mainwin::Mainwin() {
     menuitem_relate->set_submenu(*relatemenu);
 	
 	
-	//           NEW STUDENT
-    // Append New Student to the INSERT menu
+	//   Student to parent
+    // Append student to parent to the INSERT menu
     Gtk::MenuItem *menuitem_student_to_parent = Gtk::manage(new Gtk::MenuItem("_Student to Parent", true));
     menuitem_student_to_parent->signal_activate().connect([this] {this->on_student_parent_click();});
     relatemenu->append(*menuitem_student_to_parent);
+	
+	display = Gtk::manage(new Gtk::Label());
+	display->set_hexpand(true);
+	display->set_vexpand(true);
+	vbox->add(*display);
+	
+	display->set_text("Students\n\nParents");
+	
+	
 
 	vbox-> show_all();
 	
