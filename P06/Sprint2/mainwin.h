@@ -27,6 +27,11 @@ class Mainwin : public Gtk::Window{
 		std::vector<Student> students;
 		std::vector<Parent> parents;
 		
+		//Helper methods to get inputs from the user
+		int get_int(std::string prompt);
+        double get_double(std::string prompt);
+        std::string get_string(std::string prompt);
+		
 };
 
 

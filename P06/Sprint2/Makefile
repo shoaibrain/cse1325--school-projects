@@ -6,8 +6,8 @@ all: mainwin
 debug: CXXFLAGS += -g
 debug: mainwin
 
-mainwin: main.o mainwin.o person.o student.o parent.o *.h
-	$(CXX) $(CXXFLAGS) main.o mainwin.o person.o student.o parent.o  $(GTKFLAGS) -o smart
+mainwin: main.o mainwin.o person.o student.o parent.o entrydialog.o *.h
+	$(CXX) $(CXXFLAGS) main.o mainwin.o person.o student.o parent.o entrydialog.o $(GTKFLAGS) -o smart
 
 
 main.o: main.cpp *.h
@@ -24,6 +24,10 @@ student.o: student.cpp *.h
 
 parent.o: parent.cpp *.h
 	$(CXX) $(CXXFLAGS) -c parent.cpp -o parent.o
+#Entry Dialog
+entrydialog.o: entrydialog.cpp *.h
+	$(CXX) $(CXXFLAGS) -c entrydialog.cpp $(GTKFLAGS) -o entrydialog.o
+
 
 clean:
 	rm -f *.o *.gch *~ a.out smart
