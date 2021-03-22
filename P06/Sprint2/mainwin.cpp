@@ -97,7 +97,9 @@ Mainwin::~Mainwin(){}
 //CALL BACKS
 
 void Mainwin::on_new_school_click(){
-	//do something
+	//Clears the vector and updates the dusplay
+	students.clear();
+	parents.clear();
 	
 	
 }
@@ -107,10 +109,14 @@ void Mainwin::on_new_student_click(){
 	try{
 	std::string name = get_string("Student name?");
 	std::string email = get_string("Student email?");
-	double grade = get_double("Student grade?");
+	int grade = get_int("Student grade?");
 	//Instance student class and add it to the student vector
 	students.push_back(Student{name,email,grade});
+	
+	show_data("Students:");
 	} catch (std::exception& e){}
+	
+	
 	
 	
 	
@@ -123,6 +129,8 @@ void Mainwin::on_new_parent_click(){
 	std::string email = get_string("Parent email?");
 	//Instance parent class and add it to the parent vector
 	parents.push_back(Parent({name,email}));
+	
+	show_data("Parents:");
 	}catch (std::exception& e){}
 }
 
@@ -130,14 +138,45 @@ void Mainwin::on_student_parent_click(){
 	//do something
 }
 
+void Mainwin::show_data(std::string category){
+	std::string s = category+"\n\n";
+    
+	if (category == "Students:"){
+		
+		for (int i = 0; i < students.size();++i){
+		std::ostringstream oss;
+		oss << students[i].full_info() << "\n";
+		s += oss.str();
+		}
+		display->set_text(s);
+		
+	}
+	else if (category == "Parents:"){
+		
+		for (int i = 0; i < parents.size();++i){
+		std::ostringstream oss;
+		oss << parents[i].full_info() << "\n";
+		s += oss.str();
+		}
+
+		display->set_text(s);
+	}
+
+}
+
+
+
 void Mainwin::on_quit_click(){
 	//do something
 	close();
 }
 
 
+
+
+
 std::string Mainwin::get_string(std::string prompt) {
-    EntryDialog edialog(*this, "<big>New Student</big>", true);
+    EntryDialog edialog(*this, "<big>            </big>", true);
     edialog.set_secondary_text(prompt, true);
     if(edialog.run() == Gtk::RESPONSE_CANCEL) throw std::runtime_error{"CANCEL"};
     return edialog.get_text();
