@@ -2,9 +2,9 @@
 #include "mainwin.h"
 #include "entrydialog.h"
 #include <iostream> // for std::cerr logging
-
+		
+		
 Mainwin::Mainwin() {
-
 
     // /////////////////
     // G U I   S E T U P
@@ -17,7 +17,7 @@ Mainwin::Mainwin() {
     Gtk::Box *vbox = Gtk::manage(new Gtk::VBox);
     add(*vbox);
 	
-	// /////// ////////////////////////////////////////////////////////////////
+	
     // M E N U
     // Add a menu bar as the top item in the vertical box
     Gtk::MenuBar *menubar = Gtk::manage(new Gtk::MenuBar);
@@ -135,19 +135,36 @@ void Mainwin::on_new_parent_click(){
 }
 
 void Mainwin::on_student_parent_click(){
-	//do something
-		//do something
+	    //Option to select students
 		try{
+		std::string prompt_student = "Select Student\n";
+		int i;
+		for (i = 0; i < students.size();i++){
+			std::ostringstream oss;
+			oss <<i <<") "<< students[i] << "\n";
+			prompt_student += oss.str();
+		}
 		//get selction student int from the given options	
-		int student = get_int("Select student");
-		//Display the name of all the current students in database
+		int student = get_int(prompt_student);
 		
+		//Option to select Parent
+		std::string prompt_parent = "Select Parent\n";
+		int j;
+		for (j = 0; j < parents.size();j++){
+			std::ostringstream oss;
+			oss <<j <<") "<< parents[j] << "\n";
+			prompt_parent += oss.str();
+		}
 		//get selection parent int from the given options
-		int parent = get_int("Select parent");
-		//Display the names of all the parents in database
+		int parent = get_int(prompt_parent);
 		
-		//Instance student class and add it to the student vector
-		//students.push_back(Student{name,email,grade});
+		try {
+                students.at(student).add_parent(parents.at(parent));
+                parents.at(parent).add_student(students.at(student));
+            } 
+		catch(...) {
+                std::cerr << "Invalid selection!" << std::endl;
+            }
 		
 		show_data();
 		} catch (std::exception& e){}
@@ -183,10 +200,6 @@ void Mainwin::on_quit_click(){
 	close();
 }
 
-
-
-
-
 std::string Mainwin::get_string(std::string prompt) {
     EntryDialog edialog(*this, "<big>            </big>", true);
     edialog.set_secondary_text(prompt, true);
@@ -213,3 +226,31 @@ int Mainwin::get_int(std::string prompt) {
         }
     }
 }
+
+/*
+
+	void print(const std::vector<Student>& students) {
+		std::string s = "Select Student\n\n";
+		int i;
+		for(i=0; i<students.size(); ++i){
+			std::ostringstream oss;
+			oss<< i << ") "<< students[i] << "\n";
+			s += oss.str();
+		}
+		
+		display->set_text(s);
+	}
+	  
+	  
+	void print(const std::vector<Parent>& parents) {
+	std::string s = "Select Parent\n\n";
+	int i;
+	for(i=0; i<parents.size(); ++i){
+		std::ostringstream oss;
+		oss<< i << ") "<< parents[i] << "\n";
+		s += oss.str();
+	}
+	
+	display->set_text(s);
+}
+*/
