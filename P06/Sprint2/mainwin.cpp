@@ -187,7 +187,7 @@ void Mainwin::show_data(){
 		oss << parents[j].full_info() << "\n";
 		s += oss.str();
 		}
-		
+		//Display all the data in the dataset
 		display-> set_text(s);
 	
 
@@ -196,7 +196,7 @@ void Mainwin::show_data(){
 
 
 void Mainwin::on_quit_click(){
-	//do something
+	//Close the window
 	close();
 }
 
@@ -226,31 +226,3 @@ int Mainwin::get_int(std::string prompt) {
         }
     }
 }
-
-/*
-
-	void print(const std::vector<Student>& students) {
-		std::string s = "Select Student\n\n";
-		int i;
-		for(i=0; i<students.size(); ++i){
-			std::ostringstream oss;
-			oss<< i << ") "<< students[i] << "\n";
-			s += oss.str();
-		}
-		
-		display->set_text(s);
-	}
-	  
-	  
-	void print(const std::vector<Parent>& parents) {
-	std::string s = "Select Parent\n\n";
-	int i;
-	for(i=0; i<parents.size(); ++i){
-		std::ostringstream oss;
-		oss<< i << ") "<< parents[i] << "\n";
-		s += oss.str();
-	}
-	
-	display->set_text(s);
-}
-*/

@@ -31,7 +31,6 @@ class Mainwin : public Gtk::Window{
 		int get_int(std::string prompt);
         double get_double(std::string prompt);
         std::string get_string(std::string prompt);
-		//void print(const std::vector<Student>& students);
 		
 };
 
