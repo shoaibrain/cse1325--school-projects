@@ -23,7 +23,7 @@ class Mainwin : public Gtk::Window{
 	private:
 		
 		Gtk::Label *display;
-		void show_data(std::string category);
+		void show_data();
 		std::vector<Student> students;
 		std::vector<Parent> parents;
 		

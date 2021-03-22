@@ -97,9 +97,13 @@ Mainwin::~Mainwin(){}
 //CALL BACKS
 
 void Mainwin::on_new_school_click(){
-	//Clears the vector and updates the dusplay
+	//Clears the vector and updates the display
 	students.clear();
 	parents.clear();
+	
+	//Show updated display
+	show_data();
+	
 	
 	
 }
@@ -113,12 +117,8 @@ void Mainwin::on_new_student_click(){
 	//Instance student class and add it to the student vector
 	students.push_back(Student{name,email,grade});
 	
-	show_data("Students:");
+	show_data();
 	} catch (std::exception& e){}
-	
-	
-	
-	
 	
 }
 
@@ -130,37 +130,49 @@ void Mainwin::on_new_parent_click(){
 	//Instance parent class and add it to the parent vector
 	parents.push_back(Parent({name,email}));
 	
-	show_data("Parents:");
+	show_data();
 	}catch (std::exception& e){}
 }
 
 void Mainwin::on_student_parent_click(){
 	//do something
+		//do something
+		try{
+		//get selction student int from the given options	
+		int student = get_int("Select student");
+		//Display the name of all the current students in database
+		
+		//get selection parent int from the given options
+		int parent = get_int("Select parent");
+		//Display the names of all the parents in database
+		
+		//Instance student class and add it to the student vector
+		//students.push_back(Student{name,email,grade});
+		
+		show_data();
+		} catch (std::exception& e){}
 }
 
-void Mainwin::show_data(std::string category){
-	std::string s = category+"\n\n";
-    
-	if (category == "Students:"){
-		
-		for (int i = 0; i < students.size();++i){
+void Mainwin::show_data(){
+	std::string s = "Students\n\n";
+		int i;
+		int j;
+		for (i = 0; i < students.size();++i){
 		std::ostringstream oss;
 		oss << students[i].full_info() << "\n";
 		s += oss.str();
 		}
-		display->set_text(s);
+	
+        s += "\nParents\n\n";	    
 		
-	}
-	else if (category == "Parents:"){
-		
-		for (int i = 0; i < parents.size();++i){
+		for (j = 0; j < parents.size();++j){
 		std::ostringstream oss;
-		oss << parents[i].full_info() << "\n";
+		oss << parents[j].full_info() << "\n";
 		s += oss.str();
 		}
-
-		display->set_text(s);
-	}
+		
+		display-> set_text(s);
+	
 
 }
 
