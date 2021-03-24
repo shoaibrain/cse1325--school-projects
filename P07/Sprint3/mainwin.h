@@ -17,7 +17,11 @@ class Mainwin : public Gtk::Window{
 		void on_new_student_click();
 		void on_new_parent_click();
 		void on_student_parent_click();
+		void on_save_click();
+		void on_save_as_click();
+		void on_open_click();
 		void on_quit_click();
+		void on_about_click();
 		
 	
 	private:
