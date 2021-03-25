@@ -21,3 +21,19 @@ std::string Student::full_info() const {
     return info;
 }
 
+
+Student::Student(std::istream& ist) : Person( ist ){
+	ist >> _name >> _email >> _grade;
+	ist.ignore(32767, '\n');
+	
+}
+
+void Student::save(std::ostream& ost){
+	ost << _name << std::endl;
+	ost << _email << std::endl;
+	ost << _grade << std::endl;
+	
+}
+
+
+

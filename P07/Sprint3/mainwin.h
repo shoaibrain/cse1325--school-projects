@@ -27,6 +27,7 @@ class Mainwin : public Gtk::Window{
 	private:
 		
 		Gtk::Label *display;
+		std::string filename;
 		void show_data();
 		std::vector<Student> students;
 		std::vector<Parent> parents;

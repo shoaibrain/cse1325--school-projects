@@ -1,6 +1,10 @@
 #include "parent.h"
 #include "student.h"
 
+Parent::Parent(std::string name, std::string email)
+  :  Person(name, email) { }
+  
+
 void Parent::add_student(Student& student) {
     _students.push_back(&student);
 }
@@ -16,5 +20,18 @@ std::string Parent::full_info() const {
         separator = ", ";
     }
     return info;
+}
+
+
+Parent::Parent(std::istream& ist) : Person( ist ){
+	ist >> _name >> _email;
+	ist.ignore(32767, '\n');
+	
+}
+
+void Parent::save(std::ostream& ost){
+	ost << _name << std::endl;
+	ost << _email << std::endl;
+	
 }
 

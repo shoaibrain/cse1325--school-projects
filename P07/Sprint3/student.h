@@ -8,7 +8,10 @@ class Parent;
 
 class Student : public Person {
   public:
+	using Person::Person;
     Student(std::string name, std::string email, int grade);
+	Student(std::istream& ist); //Open previously saved Student
+	virtual void save(std::ostream& ost) override; //Save the Student
     void add_parent(Parent& parent);
     int parents();
     Parent& parent(int index);

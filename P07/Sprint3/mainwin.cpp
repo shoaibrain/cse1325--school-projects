@@ -240,17 +240,14 @@ void Mainwin::on_new_parent_click(){
 	}catch (std::exception& e){}
 }
 
-void Mainwin::on_save_click(){
-	//pass
+void Mainwin::on_save_click() {
+ //pass   
 }
 
 void Mainwin::on_save_as_click(){
 	//pass
 }
 
-void Mainwin::on_open_click(){
-	//pass
-}
 
 
 void Mainwin::on_student_parent_click(){
@@ -311,6 +308,52 @@ void Mainwin::show_data(){
 	
 
 }
+
+//
+// The user wants to open school items from the file
+//
+void Mainwin::on_open_click() {
+    Gtk::FileChooserDialog dialog("Please choose a file",
+          Gtk::FileChooserAction::FILE_CHOOSER_ACTION_OPEN);
+    dialog.set_transient_for(*this);
+
+    auto filter_smart = Gtk::FileFilter::create();
+    filter_smart->set_name("SMART files");
+    filter_smart->add_pattern("*.smart");
+    dialog.add_filter(filter_smart);
+ 
+    auto filter_any = Gtk::FileFilter::create();
+    filter_any->set_name("Any files");
+    filter_any->add_pattern("*");
+    dialog.add_filter(filter_any);
+
+    dialog.set_filename("untitled.smart");
+
+    //Add response buttons the the dialog:
+    dialog.add_button("_Cancel", 0);
+    dialog.add_button("_Open", 1);
+
+    int result = dialog.run();
+
+/*
+    if (result == 1) {
+        try {
+            delete smart;
+            std::ifstream ifs{dialog.get_filename()};
+            Student = new Student{ifs};
+            bool b;
+            ifs >> b;
+            computer_player->set_active(b);
+            if(!ifs) throw std::runtime_error{"File contents bad"};
+            set_sticks();
+        } catch (std::exception& e) {
+            Gtk::MessageDialog{*this, "Unable to open game"}.run();
+        }
+    }
+	*/
+}
+
+
 
 
 ////////////////////MISC////////////////////////
