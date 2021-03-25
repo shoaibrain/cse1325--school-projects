@@ -7,9 +7,10 @@
 
 const std::string APP = "Smart School";
 const std::string VERSION = "0.2";
+const std::string DEFAULTFN = "untitled.smart";
 
 		
-Mainwin::Mainwin() {
+Mainwin::Mainwin() :filename{DEFAULTFN}{
 
     // /////////////////
     // G U I   S E T U P
@@ -240,8 +241,36 @@ void Mainwin::on_new_parent_click(){
 	}catch (std::exception& e){}
 }
 
-void Mainwin::on_save_click() {
- //pass   
+void Mainwin::on_save_click() { 
+ 
+  try {
+	//Open an output file stream
+        std::ofstream ofs{filename};
+	//Write a size of student vector to ostream as a seperate line
+		ofs << students.size() << '\n';
+	//for each loop, call student's save method so it can write its own data to stream
+	    for (int i = 0; i < students.size(); ++i){
+			students[i]->save(ofs);
+		}
+	//New line to seperate student and parent
+		ofs << '\n';
+	//Write a size of parent vector to ostream as a seperate line
+	    ofs << parents.size() << '\n';
+	 //for each loop, call parent's save method so it can write its own data to stream
+	    for (int i = 0; i < parents.size(); ++i){
+			parents[i]->save(ofs);
+		}
+	//close the file
+	ofs.close();
+        
+		if(!ofs) throw std::runtime_error{"Error writing file " + filename};
+    } 
+	catch(std::exception& e) {
+        Gtk::MessageDialog{*this, "Unable to save store: " + std::string{e.what()},
+            false, Gtk::MESSAGE_WARNING}.run();
+    }
+ 
+ 
 }
 
 void Mainwin::on_save_as_click(){

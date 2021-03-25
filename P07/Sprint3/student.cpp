@@ -1,5 +1,6 @@
 #include "student.h"
 #include "parent.h"
+#include <fstream>
 
 Student::Student(std::string name, std::string email, int grade)
   :  Person(name, email), _grade{grade} { }
