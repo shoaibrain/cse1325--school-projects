@@ -15,7 +15,7 @@ Mainwin::Mainwin() {
     // G U I   S E T U P
     // /////////////////
 
-    set_default_size(500, 300);
+    set_default_size(650, 450);
     set_title("The SMART System");
 
     // Put a vertical box container as the Window contents
@@ -158,7 +158,7 @@ Mainwin::Mainwin() {
 
     //     C R E A T E   N E W  S T U D E N T 
     // Add a New student button to the toolbar
-    Gtk::Image* student_image = Gtk::manage(new Gtk::Image{"new_studet.png"});
+    Gtk::Image* student_image = Gtk::manage(new Gtk::Image{"student.png"});
     Gtk::ToolButton* new_student_button = Gtk::manage(new Gtk::ToolButton(*student_image));
     new_student_button->set_tooltip_markup("Create New Student");
     new_student_button->signal_clicked().connect([this] {this->on_new_student_click();});
@@ -167,7 +167,7 @@ Mainwin::Mainwin() {
 
     //     C R E A T E   N E W  PARENT
     // Add a New student button to the toolbar
-    Gtk::Image* parent_image = Gtk::manage(new Gtk::Image{"new_student.png"});
+    Gtk::Image* parent_image = Gtk::manage(new Gtk::Image{"family.png"});
     Gtk::ToolButton* new_parent_button = Gtk::manage(new Gtk::ToolButton(*parent_image));
     new_parent_button->set_tooltip_markup("Create New Student");
     new_parent_button->signal_clicked().connect([this] {this->on_new_parent_click();});
@@ -175,7 +175,7 @@ Mainwin::Mainwin() {
 	
 	//     RELATE STUDENT AND PARENT
     // Add relate student parent button to the toolbar
-    Gtk::Image* relate_image = Gtk::manage(new Gtk::Image{"relate.png"});
+    Gtk::Image* relate_image = Gtk::manage(new Gtk::Image{"computer.png"});
     Gtk::ToolButton* relate_button = Gtk::manage(new Gtk::ToolButton(*relate_image));
     relate_button->set_tooltip_markup("Relate student & parent");
     relate_button->signal_clicked().connect([this] {this->on_student_parent_click();});
@@ -252,9 +252,6 @@ void Mainwin::on_open_click(){
 	//pass
 }
 
-void Mainwin::on_about_click(){
-	//pass
-}
 
 void Mainwin::on_student_parent_click(){
 	    //Option to select students
@@ -313,6 +310,29 @@ void Mainwin::show_data(){
 		display-> set_text(s);
 	
 
+}
+
+
+////////////////////MISC////////////////////////
+
+void Mainwin::on_about_click() {
+    Gtk::AboutDialog dialog;
+    dialog.set_transient_for(*this); // Avoid the discouraging warning
+    dialog.set_program_name("SMART");
+    auto logo = Gdk::Pixbuf::create_from_file("school.png");
+    dialog.set_logo(logo);
+    dialog.set_version("Version " + VERSION);
+    dialog.set_copyright("Copyright 2021");
+    dialog.set_license_type(Gtk::License::LICENSE_GPL_3_0);
+    std::vector< Glib::ustring > authors = {"Shoaib Rain, George F. Rice"};
+    dialog.set_authors(authors);
+    std::vector< Glib::ustring > artists = {
+        "Students logo by flaticon (Free for commercial use, No attribution required)\nhttps://www.flaticon.com/search?word=family",
+        "Family logo (Free for commercial use, No attribution required)\nhttps://www.flaticon.com/search?word=family",
+        "Computer logo by https://www.flaticon.com/search?word=family",
+        };
+    dialog.set_artists(artists);
+    dialog.run();
 }
 
 
