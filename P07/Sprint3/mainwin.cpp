@@ -250,7 +250,7 @@ void Mainwin::on_save_click() {
 		ofs << students.size() << '\n';
 	//for each loop, call student's save method so it can write its own data to stream
 	    for (int i = 0; i < students.size(); ++i){
-			students[i]->save(ofs);
+			students[i].save(ofs);
 		}
 	//New line to seperate student and parent
 		ofs << '\n';
@@ -258,7 +258,7 @@ void Mainwin::on_save_click() {
 	    ofs << parents.size() << '\n';
 	 //for each loop, call parent's save method so it can write its own data to stream
 	    for (int i = 0; i < parents.size(); ++i){
-			parents[i]->save(ofs);
+			parents[i].save(ofs);
 		}
 	//close the file
 	ofs.close();
