@@ -170,7 +170,7 @@ Mainwin::Mainwin() :filename{DEFAULTFN}{
     // Add a New student button to the toolbar
     Gtk::Image* parent_image = Gtk::manage(new Gtk::Image{"family.png"});
     Gtk::ToolButton* new_parent_button = Gtk::manage(new Gtk::ToolButton(*parent_image));
-    new_parent_button->set_tooltip_markup("Create New Student");
+    new_parent_button->set_tooltip_markup("Create New Parent");
     new_parent_button->signal_clicked().connect([this] {this->on_new_parent_click();});
     toolbar->append(*new_parent_button);
 	
@@ -325,7 +325,7 @@ void Mainwin::on_open_click() {
     dialog.add_button("_Open", 1);
 
     int result = dialog.run();
-
+//students.push_back(Student{name,email,grade});
     if (result == 1) {
         try {
             filename = dialog.get_filename();
@@ -335,37 +335,32 @@ void Mainwin::on_open_click() {
 			
 			//read the size of students vector from istream as a seperate line
             int student_size;
-			student_size = stoi(getline(ifs,student_size));
+			//read line as string & change to integer
+			ifs >> student_size;
+			ifs.ignore(32767,'n');
 			for (int i = 0; i < student_size; ++i){
-				std::string name;
-				getline(ifs,name);
-				std::string email;
-				getline(ifs,email);
-				int grade;
-				grade = stoi(getline(ifs,grade));
-				//Create new student object and push it to the students vector
-				students.push_back(Student{name,email,grade});
+				
+				students.push_back(Student{ifs});
 			}
 			//Read the size of parent vector
 			int parent_size;
-			parent_size = stoi(getline(ifs,parent_size));
-			for (int i = 0; i < student_size; ++i){
-				std::string name;
-				getline(ifs,name);
-				std::string email;
-				getline(ifs,email);
-				//Create new student object and push it to the students vector
-				parents.push_back(Parent{name,email});
+			//read line as string & change it to string
+			ifs >> parent_size;
+			ifs.ignore(32767,'n');
+			for (int i = 0; i < parent_size; ++i){
+				parents.push_back( Parent{ifs});
 			}
+			
+			//show_data();
+			
 			
 			
         } catch (std::exception& e) {
-            Gtk::MessageDialog{*this, "Unable to open store: " + std::string{e.what()},
+            Gtk::MessageDialog{*this, "Unable to open smart: " + std::string{e.what()},
                 false, Gtk::MESSAGE_WARNING}.run();
             //on_new_store_click(true);
         }
     }
-    show_data();
 }
 
 
