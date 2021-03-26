@@ -252,8 +252,6 @@ void Mainwin::on_save_click() {
 	    for (int i = 0; i < students.size(); ++i){
 			students[i].save(ofs);
 		}
-	//New line to seperate student and parent
-		ofs << '\n';
 	//Write a size of parent vector to ostream as a seperate line
 	    ofs << parents.size() << '\n';
 	 //for each loop, call parent's save method so it can write its own data to stream
@@ -274,7 +272,6 @@ void Mainwin::on_save_click() {
 }
 
 void Mainwin::on_save_as_click() {
-    //set_status();
     Gtk::FileChooserDialog dialog("Please choose a file",
           Gtk::FileChooserAction::FILE_CHOOSER_ACTION_SAVE);
     dialog.set_transient_for(*this);
@@ -301,6 +298,74 @@ void Mainwin::on_save_as_click() {
         filename = dialog.get_filename();
         on_save_click();  // Delegate to save
     }
+}
+
+//
+// The user wants to open a store from the filesystem
+//
+void Mainwin::on_open_click() {
+    Gtk::FileChooserDialog dialog("Please choose a file",
+          Gtk::FileChooserAction::FILE_CHOOSER_ACTION_OPEN);
+    dialog.set_transient_for(*this);
+
+    auto filter_smart = Gtk::FileFilter::create();
+    filter_smart->set_name("SMART files");
+    filter_smart->add_pattern("*.smart");
+    dialog.add_filter(filter_smart);
+ 
+    auto filter_any = Gtk::FileFilter::create();
+    filter_any->set_name("Any files");
+    filter_any->add_pattern("*");
+    dialog.add_filter(filter_any);
+
+    dialog.set_filename("untitled.smart");
+
+    //Add response buttons the the dialog:
+    dialog.add_button("_Cancel", 0);
+    dialog.add_button("_Open", 1);
+
+    int result = dialog.run();
+
+    if (result == 1) {
+        try {
+            filename = dialog.get_filename();
+            std::ifstream ifs{filename};
+			//clear the current school information
+            on_new_school_click();
+			
+			//read the size of students vector from istream as a seperate line
+            int student_size;
+			student_size = stoi(getline(ifs,student_size));
+			for (int i = 0; i < student_size; ++i){
+				std::string name;
+				getline(ifs,name);
+				std::string email;
+				getline(ifs,email);
+				int grade;
+				grade = stoi(getline(ifs,grade));
+				//Create new student object and push it to the students vector
+				students.push_back(Student{name,email,grade});
+			}
+			//Read the size of parent vector
+			int parent_size;
+			parent_size = stoi(getline(ifs,parent_size));
+			for (int i = 0; i < student_size; ++i){
+				std::string name;
+				getline(ifs,name);
+				std::string email;
+				getline(ifs,email);
+				//Create new student object and push it to the students vector
+				parents.push_back(Parent{name,email});
+			}
+			
+			
+        } catch (std::exception& e) {
+            Gtk::MessageDialog{*this, "Unable to open store: " + std::string{e.what()},
+                false, Gtk::MESSAGE_WARNING}.run();
+            //on_new_store_click(true);
+        }
+    }
+    show_data();
 }
 
 
@@ -362,52 +427,6 @@ void Mainwin::show_data(){
 	
 
 }
-
-//
-// The user wants to open school items from the file
-//
-void Mainwin::on_open_click() {
-    Gtk::FileChooserDialog dialog("Please choose a file",
-          Gtk::FileChooserAction::FILE_CHOOSER_ACTION_OPEN);
-    dialog.set_transient_for(*this);
-
-    auto filter_smart = Gtk::FileFilter::create();
-    filter_smart->set_name("SMART files");
-    filter_smart->add_pattern("*.smart");
-    dialog.add_filter(filter_smart);
- 
-    auto filter_any = Gtk::FileFilter::create();
-    filter_any->set_name("Any files");
-    filter_any->add_pattern("*");
-    dialog.add_filter(filter_any);
-
-    dialog.set_filename("untitled.smart");
-
-    //Add response buttons the the dialog:
-    dialog.add_button("_Cancel", 0);
-    dialog.add_button("_Open", 1);
-
-    int result = dialog.run();
-
-/*
-    if (result == 1) {
-        try {
-            delete smart;
-            std::ifstream ifs{dialog.get_filename()};
-            Student = new Student{ifs};
-            bool b;
-            ifs >> b;
-            computer_player->set_active(b);
-            if(!ifs) throw std::runtime_error{"File contents bad"};
-            set_sticks();
-        } catch (std::exception& e) {
-            Gtk::MessageDialog{*this, "Unable to open game"}.run();
-        }
-    }
-	*/
-}
-
-
 
 
 ////////////////////MISC////////////////////////
