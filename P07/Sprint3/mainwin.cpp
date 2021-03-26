@@ -273,10 +273,35 @@ void Mainwin::on_save_click() {
  
 }
 
-void Mainwin::on_save_as_click(){
-	//pass
-}
+void Mainwin::on_save_as_click() {
+    //set_status();
+    Gtk::FileChooserDialog dialog("Please choose a file",
+          Gtk::FileChooserAction::FILE_CHOOSER_ACTION_SAVE);
+    dialog.set_transient_for(*this);
 
+    auto filter_smart = Gtk::FileFilter::create();
+    filter_smart->set_name("SMART files");
+    filter_smart->add_pattern("*.smart");
+    dialog.add_filter(filter_smart);
+ 
+    auto filter_any = Gtk::FileFilter::create();
+    filter_any->set_name("Any files");
+    filter_any->add_pattern("*");
+    dialog.add_filter(filter_any);
+
+    dialog.set_filename("untitled.smart");
+
+    //Add response buttons the the dialog:
+    dialog.add_button("_Cancel", 0);
+    dialog.add_button("_Save", 1);
+
+    int result = dialog.run();
+
+    if (result == 1) {
+        filename = dialog.get_filename();
+        on_save_click();  // Delegate to save
+    }
+}
 
 
 void Mainwin::on_student_parent_click(){
