@@ -328,8 +328,7 @@ void Mainwin::on_open_click() {
 //students.push_back(Student{name,email,grade});
     if (result == 1) {
         try {
-            filename = dialog.get_filename();
-            std::ifstream ifs{filename};
+			std::ifstream ifs{dialog.get_filename()};
 			//clear the current school information
             on_new_school_click();
 			
@@ -351,14 +350,13 @@ void Mainwin::on_open_click() {
 				parents.push_back( Parent{ifs});
 			}
 			
-			//show_data();
+			show_data();
 			
 			
 			
         } catch (std::exception& e) {
             Gtk::MessageDialog{*this, "Unable to open smart: " + std::string{e.what()},
                 false, Gtk::MESSAGE_WARNING}.run();
-            //on_new_store_click(true);
         }
     }
 }
