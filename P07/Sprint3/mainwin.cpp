@@ -336,16 +336,16 @@ void Mainwin::on_open_click() {
             int student_size;
 			//read line as string & change to integer
 			ifs >> student_size;
-			ifs.ignore(32767,'n');
-			for (int i = 1; i <= student_size; ++i){
+			ifs.ignore(32767,'\n');
+			for (int i = 0; i < student_size; ++i){
 				students.push_back(Student{ifs});
 			}
 			//Read the size of parent vector
 			int parent_size;
 			//read line as string & change it to string
 			ifs >> parent_size;
-			ifs.ignore(32767,'n');
-			for (int i = 1 ; i <= parent_size; ++i){
+			ifs.ignore(32767,'\n');
+			for (int i = 0 ; i < parent_size; ++i){
 				
 				parents.push_back(Parent{ifs});
 			}
