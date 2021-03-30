@@ -25,14 +25,16 @@ std::string Parent::full_info() const {
 
 
 Parent::Parent(std::istream& ist) : Person( ist ){
-	ist >> _name >> _email;
-	ist.ignore(32767, '\n');
+	//ist >> _name >> _email;
+	//ist.ignore(32767, '\n');
+	//std::getline(ist,_name);
+	//std::getline(ist,_email);
+	
 	
 }
 
 void Parent::save(std::ostream& ost){
-	ost << _name << std::endl;
-	ost << _email << std::endl;
+	Person::save(ost);
 	
 }
 

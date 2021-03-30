@@ -17,13 +17,14 @@ std::ostream& operator<<(std::ostream& ost, const Person& person) {
 }
 
 Person::Person(std::istream& ist){
-	ist >> _name >> _email;
-	ist.ignore(32767, '\n');
+
+	std::getline(ist,_name);
+	std::getline(ist,_email);
 }
 
 void Person::save(std::ostream& ost){
 	ost << _name << std::endl;
-	ost << _email << std::endl;
+	ost << _email<<std::endl;
 }
 
 

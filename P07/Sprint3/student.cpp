@@ -24,15 +24,26 @@ std::string Student::full_info() const {
 
 
 Student::Student(std::istream& ist) : Person( ist ){
-	ist >> _name >> _email >> _grade;
+	//std::getline(ist,_name);
+	//std::getline(ist,_email);
+	
+	ist >> _grade;
+	//ist >> _name >> _email >> _grade;
 	ist.ignore(32767, '\n');
 	
 }
 
 void Student::save(std::ostream& ost){
-	ost << _name << std::endl;
-	ost << _email << std::endl;
-	ost << _grade << std::endl;
+	//ost << _name;
+	//ost << _email;
+	//ost << _grade;
+	//ost << std::endl;
+	//ost << _name << std::endl;
+	//ost << _email<< std::endl;
+	Person::save(ost);
+	ost << _grade<< std::endl;
+	
+	
 	
 }
 

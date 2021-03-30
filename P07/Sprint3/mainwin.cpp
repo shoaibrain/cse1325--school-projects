@@ -250,13 +250,14 @@ void Mainwin::on_save_click() {
 		ofs << students.size() << '\n';
 	//for each loop, call student's save method so it can write its own data to stream
 	    for (int i = 0; i < students.size(); ++i){
-			students[i].save(ofs);
+			students.at(i).save(ofs);
 		}
+		//ofs << students.size() << '\n';
 	//Write a size of parent vector to ostream as a seperate line
-	    ofs << parents.size() << '\n';
+	  ofs << parents.size() << '\n';
 	 //for each loop, call parent's save method so it can write its own data to stream
 	    for (int i = 0; i < parents.size(); ++i){
-			parents[i].save(ofs);
+			parents.at(i).save(ofs);
 		}
 	//close the file
 	ofs.close();
@@ -264,7 +265,7 @@ void Mainwin::on_save_click() {
 		if(!ofs) throw std::runtime_error{"Error writing file " + filename};
     } 
 	catch(std::exception& e) {
-        Gtk::MessageDialog{*this, "Unable to save store: " + std::string{e.what()},
+        Gtk::MessageDialog{*this, "Unable to save smart: " + std::string{e.what()},
             false, Gtk::MESSAGE_WARNING}.run();
     }
  
@@ -328,17 +329,15 @@ void Mainwin::on_open_click() {
 //students.push_back(Student{name,email,grade});
     if (result == 1) {
         try {
+			//clear the window
+			on_new_school_click();
 			std::ifstream ifs{dialog.get_filename()};
-			//clear the current school information
-            on_new_school_click();
-			
 			//read the size of students vector from istream as a seperate line
             int student_size;
 			//read line as string & change to integer
 			ifs >> student_size;
 			ifs.ignore(32767,'n');
-			for (int i = 0; i < student_size; ++i){
-				
+			for (int i = 1; i <= student_size; ++i){
 				students.push_back(Student{ifs});
 			}
 			//Read the size of parent vector
@@ -346,9 +345,11 @@ void Mainwin::on_open_click() {
 			//read line as string & change it to string
 			ifs >> parent_size;
 			ifs.ignore(32767,'n');
-			for (int i = 0; i < parent_size; ++i){
-				parents.push_back( Parent{ifs});
+			for (int i = 1 ; i <= parent_size; ++i){
+				
+				parents.push_back(Parent{ifs});
 			}
+			//ifs.close();
 			
 			show_data();
 			
