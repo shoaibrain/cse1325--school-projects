@@ -1,0 +1,24 @@
+#include "section.h"
+
+Section::Section(Course course, Semester semester, int year)
+    : _course{course}, _semester{semester}, _year{year} {}
+Section::Section(std::istream &ist)
+{
+    //Todo
+
+    //std::getline(ist, _name);
+    //std::getline(ist, _email);
+}
+void Section::save(std::ostream &ost)
+{
+    //need some work
+    ost << _course << '\n'
+        << _semester << '\n'
+        << _year << '\n';
+}
+std::ostream &operator<<(std::ostream &ost, const Section &section)
+{
+    //Todo
+    // ost << person.to_string();
+    return ost;
+}
