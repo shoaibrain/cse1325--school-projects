@@ -1,13 +1,14 @@
 #include "section.h"
 
-Section::Section(Course course, Semester semester, int year)
+Section::Section(Course course, Semester semester, int year )
     : _course{course}, _semester{semester}, _year{year} {}
 Section::Section(std::istream &ist)
 {
     //Todo
-
-    //std::getline(ist, _name);
-    //std::getline(ist, _email);
+	std::getline(ist,_course);
+	std:;getline(ist, _semester);
+	ist >> _year;
+	ist.ignore(32767, '\n');
 }
 void Section::save(std::ostream &ost)
 {
@@ -19,6 +20,6 @@ void Section::save(std::ostream &ost)
 std::ostream &operator<<(std::ostream &ost, const Section &section)
 {
     //Todo
-    // ost << person.to_string();
+    ost << section.to_string();
     return ost;
 }

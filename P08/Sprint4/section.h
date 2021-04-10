@@ -11,10 +11,11 @@ public:
     void save(std::ostream &ost);
     friend std::ostream &operator<<(std::ostream &ost, const Section &section);
 
-protected:
+private:
     Course _course;
     Semester _semester;
     int _year;
+	int _max_students;
 };
 
 #endif
