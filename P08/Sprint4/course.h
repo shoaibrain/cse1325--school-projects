@@ -1,6 +1,7 @@
 #ifndef __COURSE_H
 #define __COURSE_H
 #include  <iostream>
+#include "subject.h"
 
 class Course{
 	public:

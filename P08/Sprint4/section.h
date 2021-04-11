@@ -2,7 +2,8 @@
 #define __SECTION_H
 
 #include <iostream>
-
+#include "semester.h"
+#include "subject.h"
 class Section
 {
 public:

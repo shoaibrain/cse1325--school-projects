@@ -398,6 +398,14 @@ void Mainwin::on_student_parent_click() {  // Relate student and parent
     show_data();
 }
 
+void Mainwin::on_new_course_click(){
+	//pass
+}
+
+void Mainwin::on_new_section_click(){
+	//pass
+}
+
 void Mainwin::on_quit_click() {
     close();
 }
