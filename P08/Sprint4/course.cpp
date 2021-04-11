@@ -1,13 +1,10 @@
 #include "course.h"
-
+#inclu
 Course::Course(Subject subject, int grade)
 	: _subject{subject}, _grade{grade}{}
 	
-Course::Course(std::istream &ist){
-	//Todo
-	std::getline(ist,_subject);
-	ist >> _grade;
-	ist.ignore(32767, '\n');
+Course::Course(std::istream& ist){
+	subjects.push_back(new Subject{ist});
 	
 }
 void Course::save(std::ostream &ost){
