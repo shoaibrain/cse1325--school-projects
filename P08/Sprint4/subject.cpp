@@ -14,14 +14,25 @@ std::string subject_to_string(Subject subject){
 	else return "invalid subject";
 }
 
-void load_subject(std::istream &ist){
-	std::string _subject;
+Subject string_to_subject(std::string subject){
+	if (subject == "reading") return Subject::READING;
+	else if (subject == "writing") return Subject::WRITING;
+	else if (subject == "math") return Subject::MATH;
+	else if (subject == "science") return Subject::SCIENCE;
+	else if (subject == "history") return Subject::HISTORY;
+	else if (subject == "art") return Subject::ART;
+	else if (subject == "musicsport") return Subject::MUSICSPORTS;
 	
-	std::getline(ist,_subject);
+}
+
+Subject load_subject(std::istream &ist){
+	std::string subject;
+	std::getline(ist,subject);
+	return string_to_subject(subject);
 }
 
 
 std::ostream& operator<<(std::ostream &ost, const Subject &subject){
 	ost << subject_to_string(subject);
 	return ost;
-};
+}

@@ -16,8 +16,9 @@ enum class Subject{
 };
 
 std::ostream& operator<<(std::ostream& ost, const Subject& subject);
-void load_semester(std::istream &ist);
+Subject load_subject(std::istream &ist);
 
+Subject string_to_subject(std::string subject);
 std::string subject_to_string(Subject subject);
 
 #endif

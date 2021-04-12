@@ -5,7 +5,8 @@ Course::Course(Subject subject, int grade)
 	
 Course::Course(std::istream& ist){
 	
-	
+	//_subject = new Subject(ist);
+	//ist >> _grade;
 }
 void Course::save(std::ostream &ost){
 	//Todo

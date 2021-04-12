@@ -11,6 +11,7 @@ enum class Semester{
 };
 
 	std::ostream& operator<<(std::ostream& ost, const Semester& semester);
-	void load_semester(std::istream &ist);
+	Semester load_semester(std::istream &ist);
 	std::string semester_to_string(Semester semester);
+	Semester string_to_semester(std::string semester);
 #endif
