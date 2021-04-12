@@ -4,6 +4,7 @@
 #include <iostream>
 #include "semester.h"
 #include "subject.h"
+#include "course.h"
 class Section
 {
 public:

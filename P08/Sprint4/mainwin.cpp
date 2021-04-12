@@ -10,7 +10,7 @@ Mainwin::Mainwin() {
     // G U I   S E T U P
     // /////////////////
 
-    set_default_size(640, 480);
+    set_default_size(800, 600);
     set_title("SMART");
 
     // Put a vertical box container as the Window contents
@@ -170,6 +170,21 @@ Mainwin::Mainwin() {
     ps_relate_button->set_tooltip_markup("Relate student to parent");
     ps_relate_button->signal_clicked().connect([this] {this->on_student_parent_click();});
     toolbar->append(*ps_relate_button);
+	
+	// NEW COURSE
+	Gtk::Image* newCourse = Gtk::manage(new Gtk::Image{"calender.png"});
+    Gtk::ToolButton *newCourse_button = Gtk::manage(new Gtk::ToolButton(*newCourse));
+    newCourse_button->set_tooltip_markup("Add new course");
+    newCourse_button->signal_clicked().connect([this] {this->on_new_course_click();});
+    toolbar->append(*newCourse_button);
+	
+	//NEW SECTION
+	Gtk::Image* newSection = Gtk::manage(new Gtk::Image{"new_section.png"});
+    Gtk::ToolButton *newSection_button = Gtk::manage(new Gtk::ToolButton(*newSection));
+    newSection_button->set_tooltip_markup("Add new section");
+    newSection_button->signal_clicked().connect([this] {this->on_new_section_click();});
+    toolbar->append(*newSection_button);
+	
 
     // /////////////////////////// ////////////////////////////////////////////
     // D I S P L A Y
@@ -419,11 +434,11 @@ void Mainwin::on_about_click() {
     dialog.set_version("Version " + VERSION);
     dialog.set_copyright("Copyright " + COPYRIGHT);
     dialog.set_license_type(Gtk::License::LICENSE_GPL_3_0);
-    std::vector< Glib::ustring > authors = {"George F. Rice"};
+    std::vector< Glib::ustring > authors = {"Shoaib Rain, forked from George F. Rice's repo"};
     dialog.set_authors(authors);
     std::vector< Glib::ustring > artists = {
-        "mohamed_hassan, licensed under the Pixabay License https://pixabay.com/illustrations/learning-graduation-college-2963757/",
-        "Icons made by Becris and Freepik https://www.flaticon.com", 
+        "ptra, licensed under the Pixabay License https://pixabay.com/users/ptra-359668/",
+        "Icons made by Petra https://pixabay.com/users/ptra-359668/", 
     };
     dialog.set_artists(artists);
     dialog.run();

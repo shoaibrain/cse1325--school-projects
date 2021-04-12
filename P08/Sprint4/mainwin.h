@@ -11,7 +11,7 @@
 const std::string TITLE = "SMART";
 const std::string VERSION = "0.3.0";
 const std::string COMM_VERSION = "V0_1";
-const std::string FILE_VERSION = "0.1"; // So we can adapt to file format changes later
+const std::string FILE_VERSION = "0.2"; // So we can adapt to file format changes later
 const std::string COPYRIGHT = "2021";
 const std::string EXTENSION = "smart";
 const std::string FILE_PATTERN = "*." + EXTENSION;

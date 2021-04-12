@@ -1,10 +1,10 @@
 #include "course.h"
-#inclu
+#include <iostream>
 Course::Course(Subject subject, int grade)
 	: _subject{subject}, _grade{grade}{}
 	
 Course::Course(std::istream& ist){
-	subjects.push_back(new Subject{ist});
+	
 	
 }
 void Course::save(std::ostream &ost){
@@ -13,6 +13,6 @@ void Course::save(std::ostream &ost){
 }
 
 std::ostream &operator<<(std::ostream &ost, const Course &course){
-	ost << course.to_string();
+	ost << course;
 	return ost;
 }
