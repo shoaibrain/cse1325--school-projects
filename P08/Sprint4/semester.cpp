@@ -7,8 +7,11 @@ std::string semester_to_string(Semester semester){
 	if (semester == Semester::FALL)return "fall";
 	else if (semester == Semester::SPRING) return "spring";
 	else if (semester == Semester::SUMMER) return "summer";
-	else return "invalid subject";
+	else {
+		throw std::invalid_argument( "received invalid value" );
+	}
 }
+
 
 
 
@@ -22,6 +25,7 @@ Semester string_to_semester(std::string semester){
 	if (semester == "fall") return Semester::FALL;
 	else if (semester == "spring") return Semester::SPRING;
 	else if (semester == "summer") return Semester::SUMMER;
+	else throw std::invalid_argument( "received invalid value" );
 }
 
 std::ostream& operator<<(std::ostream& ost, const Semester& semester){

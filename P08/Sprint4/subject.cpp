@@ -11,8 +11,9 @@ std::string subject_to_string(Subject subject){
 	else if (subject == Subject::HISTORY) return "history";
 	else if (subject == Subject::ART) return "art";
 	else if (subject == Subject::MUSICSPORTS) return "musicsport";
-	else return "invalid subject";
+	else throw std::invalid_argument( "received invalid value" );
 }
+
 
 Subject string_to_subject(std::string subject){
 	if (subject == "reading") return Subject::READING;
@@ -22,6 +23,7 @@ Subject string_to_subject(std::string subject){
 	else if (subject == "history") return Subject::HISTORY;
 	else if (subject == "art") return Subject::ART;
 	else if (subject == "musicsport") return Subject::MUSICSPORTS;
+	else throw std::invalid_argument( "received invalid value" );
 	
 }
 
