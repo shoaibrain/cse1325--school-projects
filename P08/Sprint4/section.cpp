@@ -7,8 +7,9 @@
 Section::Section(Course course, Semester semester, int year )
     : _course{course}, _semester{semester}, _year{year} {}
 
-
+/*
 Section::Section(std::istream& ist){    
+	
 	_course(ist);
 	
 	load_semester(ist);
@@ -17,7 +18,7 @@ Section::Section(std::istream& ist){
 	ist.ignore(32767, '\n');
 	
 }
-
+*/
 void Section::save(std::ostream &ost)
 {
 	 _course.save(ost);

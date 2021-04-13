@@ -415,10 +415,27 @@ void Mainwin::on_student_parent_click() {  // Relate student and parent
 
 void Mainwin::on_new_course_click(){
 	//pass
+		/*
+		try {
+		EntryDialog subject{*this, "Subject name?"}; 
+		if(subject.run() == Gtk::RESPONSE_OK) subject.hide();
+        else return;
+		
+		int grade = select("Student grade?", 12, 1);
+        if(grade < 1) return;
+		
+		courses.push_back(new Course{subject.get_text(), grade});
+	}catch(std::exception& e) {
+        error("Invalid input", e);
+	}
+	show_data();
+		
+	*/
 }
 
 void Mainwin::on_new_section_click(){
 	//pass
+
 }
 
 void Mainwin::on_quit_click() {

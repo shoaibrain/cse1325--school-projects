@@ -9,7 +9,7 @@ class Section
 {
 public:
     Section(Course course, Semester semester, int year);
-    Section(std::istream &ist);
+    Section(std::istream& ist);
     void save(std::ostream &ost);
     friend std::ostream &operator<<(std::ostream &ost, const Section &section);
 
