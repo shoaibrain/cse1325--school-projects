@@ -2,8 +2,10 @@
 #define __STUDENT_H
 
 #include "person.h"
+#include "parent.h"
 #include <vector>
 #include <map>
+#include <iterator>
 
 class Parent;
 
@@ -15,12 +17,16 @@ class Student : public Person {
     void save_aggregates(std::ostream& ost);
     void load_aggregates(std::istream& ist, const std::map<std::string, Parent*>& parents);
     void add_parent(Parent& parent);
-    int parents();
-    Parent& parent(int index);
+    //int parents();
+    //Parent& parent(int index);
     std::string full_info() const override;
-  protected:
+	typedef std::vector<Parent*>::iterator iterator;
+    typedef std::vector<Parent*>::const_iterator const_iterator;
+    iterator begin() {return _parents.begin();}
+    iterator end() {return _parents.end();}
+  protected:  
     int _grade;
     std::vector<Parent*> _parents;
 };
-
+	
 #endif

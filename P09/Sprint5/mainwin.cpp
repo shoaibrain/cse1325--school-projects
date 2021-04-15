@@ -10,7 +10,7 @@ Mainwin::Mainwin() {
     // G U I   S E T U P
     // /////////////////
 
-    set_default_size(640, 480);
+    set_default_size(800, 630);
     set_title("SMART");
 
     // Put a vertical box container as the Window contents
@@ -570,11 +570,11 @@ void Mainwin::on_about_click() {
     dialog.set_version("Version " + VERSION);
     dialog.set_copyright("Copyright " + COPYRIGHT);
     dialog.set_license_type(Gtk::License::LICENSE_GPL_3_0);
-    std::vector< Glib::ustring > authors = {"George F. Rice"};
+    std::vector< Glib::ustring > authors = {"Shoaib Rain, Forked from George F. Rice works"};
     dialog.set_authors(authors);
     std::vector< Glib::ustring > artists = {
-        "mohamed_hassan, licensed under the Pixabay License https://pixabay.com/illustrations/learning-graduation-college-2963757/",
-        "Icons made by Becris, Pixel Perfect, and Freepik https://www.flaticon.com", 
+         "ptra, licensed under the Pixabay License https://pixabay.com/users/ptra-359668/",
+        "Icons made by Petra https://pixabay.com/users/ptra-359668/", 
     };
     dialog.set_artists(artists);
     dialog.run();
@@ -684,9 +684,12 @@ void Mainwin::on_easter_egg() {
             students.push_back(new Student{names[i], emails[i], grades[i]});
         for(int i=grades.size(); i<names.size(); ++i)
            parents.push_back(new Parent{names[i], emails[i]});
-        students[0]->add_parent(*parents[0]); parents[0]->add_student(*students[0]);
-        students[0]->add_parent(*parents[1]); parents[1]->add_student(*students[0]);
-        students[1]->add_parent(*parents[0]); parents[0]->add_student(*students[1]);
+        students[0]->add_parent(*parents[0]); 
+		parents[0]->add_student(*students[0]);
+        students[0]->add_parent(*parents[1]); 
+		parents[1]->add_student(*students[0]);
+        students[1]->add_parent(*parents[0]); 
+		parents[0]->add_student(*students[1]);
         students[1]->add_parent(*parents[1]); parents[1]->add_student(*students[1]);
         students[2]->add_parent(*parents[2]); parents[2]->add_student(*students[2]);
         students[2]->add_parent(*parents[1]); parents[1]->add_student(*students[2]);

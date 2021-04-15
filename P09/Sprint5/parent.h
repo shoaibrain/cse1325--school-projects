@@ -14,9 +14,13 @@ class Parent : public Person {
     void save_aggregates(std::ostream& ost);
     void load_aggregates(std::istream& ist, const std::map<std::string, Student*>& students);
     void add_student(Student& student);
-    int students();
-    Student& student(int index);
+    //int students();
+    //Student& student(int index);
     std::string full_info() const override;
+	typedef std::vector<Student*>::iterator iterator;
+    typedef std::vector<Student*>::const_iterator const_iterator;
+	iterator begin() {return _students.begin();}
+    iterator end() {return _students.end();}
   private:
     std::vector<Student*> _students;
 };

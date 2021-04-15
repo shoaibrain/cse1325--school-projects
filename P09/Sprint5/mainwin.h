@@ -9,7 +9,7 @@
 #include "section.h"
 
 const std::string TITLE = "SMART"; 
-const std::string VERSION = "0.4.0";
+const std::string VERSION = "0.5.0";
 const std::string COMM_VERSION = "V0_1";
 const std::string FILE_VERSION = "0.2";   // So we can adapt to file format changes later
 const std::string COPYRIGHT = "2021";
