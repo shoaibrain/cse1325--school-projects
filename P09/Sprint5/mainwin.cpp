@@ -573,8 +573,14 @@ void Mainwin::on_about_click() {
     std::vector< Glib::ustring > authors = {"Shoaib Rain, Forked from George F. Rice works"};
     dialog.set_authors(authors);
     std::vector< Glib::ustring > artists = {
-         "ptra, licensed under the Pixabay License https://pixabay.com/users/ptra-359668/",
-        "Icons made by Petra https://pixabay.com/users/ptra-359668/", 
+        "https://www.flaticon.com/authors/monkik",
+		"Zlatko Najdenovski",
+        "http://www.pixelinspired.com/",
+        "https://www.freepik.com/",
+         "Smashicons",
+        "https://smashicons.com/",
+		"Those Icons",
+         "FreePik"
     };
     dialog.set_artists(artists);
     dialog.run();
