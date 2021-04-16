@@ -1,7 +1,7 @@
 #include "teacher.h"
 
 void Teacher::save(std::ostream& ost) {
-    Teacher::save(ost);
+    Person::save(ost);
 }
 
 

@@ -9,7 +9,8 @@
 
 class Teacher : public Person {
   public:
-    Teacher(std::string name, std::string email);
+	using Person::Person;
+    //Teacher(std::string name, std::string email);
     Teacher(std::istream& ist);
     void save(std::ostream& ost) override;
     std::string full_info() const override;

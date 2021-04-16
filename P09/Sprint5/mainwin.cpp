@@ -560,6 +560,11 @@ void Mainwin::on_new_section_click() {      // Create a new section
         // Select Semester and year
         EntryDialog m{*this, "Select Semester and Year", false, 
             Gtk::MESSAGE_QUESTION, Gtk::BUTTONS_CANCEL};
+		
+		EntryDialog teacher{*this, "Teacher name?"}; 
+        if(teacher.run() == Gtk::RESPONSE_OK) teacher.hide();
+        else return;
+		
         m.add_button("Fall", 1);
         m.add_button("Spring", 2);
         m.add_button("Summer", 3);
@@ -571,13 +576,14 @@ void Mainwin::on_new_section_click() {      // Create a new section
                            ((r==2) ? Semester::SPRING : Semester::SUMMER);
         
         int year = std::stoi(m.get_text());
+		
 /*        
         // Select max students
         EntryDialog x{*this, "Maximum Students"};
         if(!x.run()) return;
         int max_students = std::stoi(x.get_text());
 */        
-        sections.push_back(new Section{course, semester, year});
+        sections.push_back(new Section{course, semester, year,teacher.get_text()});
     } catch(std::exception& e) {
         error("Invalid input", e);
     }
