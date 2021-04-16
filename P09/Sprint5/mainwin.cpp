@@ -556,14 +556,31 @@ void Mainwin::on_new_section_click() {      // Create a new section
         d.show_all();
         if(d.run() != 1) return;       
         Course course = *courses.at(cbt_courses.get_active_row_number());
+		
+		//Select teacher
+		 Gtk::Dialog d{"Teacher", *this};
+        auto vbox = d.get_content_area();
+        
+        Gtk::ComboBoxText cbt_teachers;
+        std::ostringstream oss;
+        for(auto t : teachers) {
+            oss.str("");
+            oss << *t;
+            cbt_teachers.append(oss.str());
+        }
+        vbox->pack_start(cbt_teachers);
+        
+        d.add_button("Cancel", 0);
+        d.add_button("Select", 1);
+        
+        d.show_all();
+        if(d.run() != 1) return;       
+        Teacher teacher = *teachers.at(cbt_teachers.get_active_row_number());
+		
 
         // Select Semester and year
         EntryDialog m{*this, "Select Semester and Year", false, 
             Gtk::MESSAGE_QUESTION, Gtk::BUTTONS_CANCEL};
-		
-		EntryDialog teacher{*this, "Teacher name?"}; 
-        if(teacher.run() == Gtk::RESPONSE_OK) teacher.hide();
-        else return;
 		
         m.add_button("Fall", 1);
         m.add_button("Spring", 2);
@@ -583,7 +600,7 @@ void Mainwin::on_new_section_click() {      // Create a new section
         if(!x.run()) return;
         int max_students = std::stoi(x.get_text());
 */        
-        sections.push_back(new Section{course, semester, year,teacher.get_text()});
+        sections.push_back(new Section{course, semester, year,teacher});
     } catch(std::exception& e) {
         error("Invalid input", e);
     }
