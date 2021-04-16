@@ -14,6 +14,7 @@ class Teacher : public Person {
     Teacher(std::istream& ist);
     void save(std::ostream& ost) override;
     std::string full_info() const override;
+	Teacher load_teacher(std::istream& ist);
 };
 
 #endif

@@ -558,23 +558,23 @@ void Mainwin::on_new_section_click() {      // Create a new section
         Course course = *courses.at(cbt_courses.get_active_row_number());
 		
 		//Select teacher
-		 Gtk::Dialog d{"Teacher", *this};
-        auto vbox = d.get_content_area();
+		 Gtk::Dialog a{"Teacher", *this};
+        auto tbox = a.get_content_area();
         
         Gtk::ComboBoxText cbt_teachers;
-        std::ostringstream oss;
+        std::ostringstream os;
         for(auto t : teachers) {
-            oss.str("");
-            oss << *t;
-            cbt_teachers.append(oss.str());
+            os.str("");
+            os << *t;
+            cbt_teachers.append(os.str());
         }
-        vbox->pack_start(cbt_teachers);
+        tbox->pack_start(cbt_teachers);
         
-        d.add_button("Cancel", 0);
-        d.add_button("Select", 1);
+        a.add_button("Cancel", 0);
+        a.add_button("Select", 1);
         
-        d.show_all();
-        if(d.run() != 1) return;       
+        a.show_all();
+        if(a.run() != 1) return;       
         Teacher teacher = *teachers.at(cbt_teachers.get_active_row_number());
 		
 
@@ -776,7 +776,7 @@ void Mainwin::on_easter_egg() {
             Semester semester = static_cast<Semester>(i);
             for(int j=0; j<=15; ++j) {
                 Course course = *courses.at(rand() % courses.size());
-                sections.push_back(new Section{course, semester, 2021});
+                //sections.push_back(new Section{course, semester, 2021});
             }
         }
         

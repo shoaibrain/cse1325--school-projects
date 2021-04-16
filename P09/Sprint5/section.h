@@ -17,7 +17,7 @@ class Section {
 	Teacher _teacher;
     int _year;
     int _max_students;
-    // Teacher& _teacher;
+    //Teacher& _teacher;
 };
 
 #endif

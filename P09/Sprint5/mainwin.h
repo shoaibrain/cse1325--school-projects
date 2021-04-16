@@ -7,6 +7,7 @@
 #include "parent.h"
 #include "course.h"
 #include "section.h"
+#include "teacher.h"
 
 const std::string TITLE = "SMART"; 
 const std::string VERSION = "0.5.0";
@@ -51,7 +52,7 @@ class Mainwin : public Gtk::Window {
         std::vector<Parent*> parents;
         std::vector<Course*> courses;
         std::vector<Section*> sections;
-
+		std::vector<Teacher*> teachers;
         std::string _filename;           // Current filename of school
 
         Gtk::Label *display;             // Display of data

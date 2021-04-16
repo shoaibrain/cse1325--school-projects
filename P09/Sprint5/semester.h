@@ -6,6 +6,6 @@
 enum class Semester {FALL, SPRING, SUMMER};
 
 std::ostream& operator<<(std::ostream& ost, const Semester& semester);
-Semester load_semester(std::istream& ist);
+
 
 #endif

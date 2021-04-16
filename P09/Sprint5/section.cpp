@@ -5,6 +5,9 @@ Section::Section(Course course, Semester semester, int year, Teacher teacher)
 Section::Section(std::istream& ist) : _course{ist} {
     _semester = load_semester(ist);
     ist >> _year; ist.ignore(32767, '\n');
+	_teacher = Teacher{ist};
+	
+	
 }
 void Section::save(std::ostream& ost) {
     _course.save(ost);
