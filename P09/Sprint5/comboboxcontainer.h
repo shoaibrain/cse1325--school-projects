@@ -17,6 +17,7 @@ class ComboBoxContainer : public Gtk::ComboBoxText {
 			 std::string current;
 			 sso >> current;
 			//Append the current string into ComboBoxText widget
+			
 		}
 		
 	};
