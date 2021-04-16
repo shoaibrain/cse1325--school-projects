@@ -37,6 +37,9 @@ class Mainwin : public Gtk::Window {
         void on_about_click();           // Display About dialog
         void on_quit_click();            // Exit the game
         void on_easter_egg();            // Load test data
+		void on_new_teacher_click();     //create new teacher
+		void on_new_transcript_click();  // Create new transcript
+		void on_set_grade_click();      //Create new grade
     private:
         void show_data(View view = View::SAME); // Display data
         int select_student();

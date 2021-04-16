@@ -10,7 +10,7 @@ Mainwin::Mainwin() {
     // G U I   S E T U P
     // /////////////////
 
-    set_default_size(800, 630);
+    set_default_size(900, 680);
     set_title("SMART");
 
     // Put a vertical box container as the Window contents
@@ -240,6 +240,33 @@ Mainwin::Mainwin() {
     section_button->set_tooltip_markup("Create a new section");
     section_button->signal_clicked().connect([this] {this->on_new_section_click();});
     toolbar->append(*section_button);
+	
+	    //    N E W   T E A C H E R
+    // Add a custom New Section icon
+    Gtk::Image* new_teacher = Gtk::manage(new Gtk::Image{"teacher.png"});
+    Gtk::ToolButton *teacher_button = Gtk::manage(new Gtk::ToolButton(*new_teacher));
+    teacher_button->set_tooltip_markup("Create a new Teacher");
+    teacher_button->signal_clicked().connect([this] {this->on_new_teacher_click();});
+    toolbar->append(*teacher_button);
+	
+	
+     //    N E W   T R A N S C R I P T
+    // Add a custom New Section icon
+    Gtk::Image* new_transcript = Gtk::manage(new Gtk::Image{"transcript.png"});
+    Gtk::ToolButton *transcript_button = Gtk::manage(new Gtk::ToolButton(*new_transcript));
+    transcript_button->set_tooltip_markup("Create a new Transcript");
+    transcript_button->signal_clicked().connect([this] {this->on_new_transcript_click();});
+    toolbar->append(*transcript_button);
+	
+	 //    N E W   G R A D E
+    // Add a custom New Section icon
+    Gtk::Image* new_grade = Gtk::manage(new Gtk::Image{"transcript.png"});
+    Gtk::ToolButton *grade_button = Gtk::manage(new Gtk::ToolButton(*new_grade));
+    grade_button->set_tooltip_markup("Set new grade");
+    grade_button->signal_clicked().connect([this] {this->on_set_grade_click();});
+    toolbar->append(*grade_button);
+	
+	
     
      // /////////////////////////// ////////////////////////////////////////////
     // D I S P L A Y
@@ -555,6 +582,17 @@ void Mainwin::on_new_section_click() {      // Create a new section
         error("Invalid input", e);
     }
     show_data(View::SECTIONS);
+}
+
+void Mainwin::on_new_teacher_click(){
+	//Todo
+}
+
+void Mainwin::on_new_transcript_click(){
+	//Todo
+}
+void Mainwin::on_set_grade_click(){
+	//Todo 
 }
 
 void Mainwin::on_quit_click() {
