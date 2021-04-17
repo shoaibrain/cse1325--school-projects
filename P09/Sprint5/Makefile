@@ -6,8 +6,8 @@ all: smart
 debug: CXXFLAGS += -g
 debug: smart
 
-smart: main.o mainwin.o entrydialog.o person.o student.o parent.o section.o course.o subject.o semester.o teacher.o grade.o *.h
-	$(CXX) $(CXXFLAGS) main.o mainwin.o entrydialog.o person.o student.o parent.o section.o course.o subject.o semester.o teacher.o grade.o $(GTKFLAGS) -o smart
+smart: main.o mainwin.o entrydialog.o person.o student.o parent.o section.o course.o subject.o semester.o teacher.o grade.o transcript.o *.h
+	$(CXX) $(CXXFLAGS) main.o mainwin.o entrydialog.o person.o student.o parent.o section.o course.o subject.o semester.o teacher.o grade.o transcript.o $(GTKFLAGS) -o smart
 
 test: test.o person.o student.o parent.o section.o course.o subject.o semester.o *.h
 	$(CXX) $(CXXFLAGS) test.o person.o student.o parent.o section.o course.o subject.o semester.o $(GTKFLAGS) -o test
@@ -39,6 +39,9 @@ parent.o: parent.cpp *.h
 
 semester.o: semester.cpp *.h
 	$(CXX) $(CXXFLAGS) -c semester.cpp -o semester.o
+
+transcript.o: transcript.cpp *.h
+	$(CXX) $(CXXFLAGS) -c transcript.cpp -o transcript.o
 
 subject.o: subject.cpp *.h
 	$(CXX) $(CXXFLAGS) -c subject.cpp -o subject.o

@@ -3,11 +3,13 @@
 
 #include <climits>
 #include <gtkmm.h>
+#include <string.h>
 #include "student.h"
 #include "parent.h"
 #include "course.h"
 #include "section.h"
 #include "teacher.h"
+#include "transcript.h"
 
 const std::string TITLE = "SMART"; 
 const std::string VERSION = "0.5.0";
@@ -53,6 +55,7 @@ class Mainwin : public Gtk::Window {
         std::vector<Course*> courses;
         std::vector<Section*> sections;
 		std::vector<Teacher*> teachers;
+		std::vector <Transcript*> transcripts;
         std::string _filename;           // Current filename of school
 
         Gtk::Label *display;             // Display of data

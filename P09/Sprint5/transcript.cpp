@@ -4,7 +4,7 @@ Transcript::Transcript(Student& student, Section& section)
 	: _student{student}, _section{section} {}
 	
 void assign_grade(Grade grade){
-	
+		_grade = grade;
 }
 
 
