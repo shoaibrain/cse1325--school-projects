@@ -2,8 +2,8 @@
 #include "transcript.h"
 
 
-Transcript::Transcript(Student& student, Section& section)
-	: _student{student}, _section{section} {}
+Transcript::Transcript(Section& section, Student& student)
+	: _section{section},_student{student} {}
 
 
 void Transcript::assign_grade(Grade grade){
