@@ -5,10 +5,10 @@
 #include <vector>
 #include <map>
 
-enum class Grade {A, B, C, D, E, F, I, X};
+enum class Grade {A, B, C, D, F, I, X};
 const std::vector<Grade> grades_vector {
     Grade::A, Grade::B, Grade::C, Grade::D, 
-    Grade::E, Grade::F, Grade::I, Grade::X,
+    Grade::F, Grade::I, Grade::X,
 };
 
 const std::map<Grade, std::string> grade_to_string {

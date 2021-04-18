@@ -8,8 +8,9 @@
 #include "parent.h"
 #include "course.h"
 #include "section.h"
-#include "teacher.h"
 #include "transcript.h"
+#include "teacher.h"
+
 
 const std::string TITLE = "SMART"; 
 const std::string VERSION = "0.5.0";

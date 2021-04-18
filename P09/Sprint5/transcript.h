@@ -1,5 +1,5 @@
-#ifndef __TRANSCRIPT_H
-#define __TRANSCRIPT_H
+#ifndef __TRANSCRIPT_
+#define __TRANSCRIPT_
 
 #include "section.h"
 #include "student.h"
@@ -16,9 +16,6 @@ class Transcript{
 		Section& _section;
 		Student& _student;
 		Grade _grade;
-}
-
-
-
+};
 
 #endif

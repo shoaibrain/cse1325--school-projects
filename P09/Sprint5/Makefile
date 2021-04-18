@@ -40,22 +40,30 @@ parent.o: parent.cpp *.h
 semester.o: semester.cpp *.h
 	$(CXX) $(CXXFLAGS) -c semester.cpp -o semester.o
 
+
 transcript.o: transcript.cpp *.h
 	$(CXX) $(CXXFLAGS) -c transcript.cpp -o transcript.o
+
 
 subject.o: subject.cpp *.h
 	$(CXX) $(CXXFLAGS) -c subject.cpp -o subject.o
 
+
 course.o: course.cpp *.h
 	$(CXX) $(CXXFLAGS) -c course.cpp -o course.o
+
 
 grade.o: grade.cpp *.h
 	$(CXX) $(CXXFLAGS) -c grade.cpp -o grade.o
 
+
 section.o: section.cpp *.h
 	$(CXX) $(CXXFLAGS) -c section.cpp -o section.o
+
+	
 teacher.o: teacher.cpp *.h
 	$(CXX) $(CXXFLAGS) -c teacher.cpp -o teacher.o
+
 
 clean:
 	rm -f *.o *.gch *~ a.out smart 
