@@ -676,7 +676,13 @@ void Mainwin::show_data(View view) {
         oss << "    <b><big>Sections</big></b>\n\n";
         for(auto section : sections) 
             oss << *section << '\n';
-    } else {
+			
+    } else if(current_view == View::TRANSCRIPTS) {
+        oss << "    <b><big>Transcript</big></b>\n\n";
+        for(auto transcript : transcripts) 
+            oss << *transcript << '\n';
+	}
+	else {
         current_view = View::STUDENTS;
     }
             

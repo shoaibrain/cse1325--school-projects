@@ -9,12 +9,16 @@
 
 class Teacher : public Person {
   public:
-	using Person::Person;
-    //Teacher(std::string name, std::string email);
+	//using Person::Person;
+	Teacher(std::string name, std::string email);
     Teacher(std::istream& ist);
     void save(std::ostream& ost) override;
     std::string full_info() const override;
-	Teacher load_teacher(std::istream& ist);
+	
+  private:
+	std::string _name;
+	std::string _email;
+	 
 };
 
 #endif

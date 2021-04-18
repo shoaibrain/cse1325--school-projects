@@ -22,7 +22,7 @@ const std::string FILE_PATTERN = "*." + EXTENSION;
 const std::string DEFAULT_FILENAME = "untitled." + EXTENSION;
 const std::string COOKIE = "«SmAr✞»";     // Weird string unlikely to be in a non-SMART file
 
-enum class View {SAME, STUDENTS, PARENTS, COURSES, SECTIONS};
+enum class View {SAME, STUDENTS, PARENTS, COURSES, SECTIONS, TRANSCRIPTS};
 
 class Mainwin : public Gtk::Window {
     public:
