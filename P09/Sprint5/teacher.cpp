@@ -1,8 +1,9 @@
 #include "teacher.h"
 
+/*
 Teacher::Teacher(std::string name, std::string email)
 	: _name{name}, _email{email} {}
-
+*/
 Teacher::Teacher(std::istream& ist){
 	std::getline(ist, _name);
     std::getline(ist, _email);
