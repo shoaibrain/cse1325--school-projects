@@ -647,9 +647,12 @@ void Mainwin::on_set_grade_click(){
         
         Gtk::ComboBoxText cbt_grade;
         std::ostringstream oss;
+		
         for(auto c : grades_vector) {
+			grade_to_string.at(c);
             oss.str("");
-            oss << *c;
+			//c = Grade::string_grade(c);
+            oss << c;
             cbt_grade.append(oss.str());
         }
         vbox->pack_start(cbt_grade);
@@ -659,7 +662,7 @@ void Mainwin::on_set_grade_click(){
         
         d.show_all();
         if(d.run() != 1) return;       
-        Grade grade = *grades.at(cbt_grade.get_active_row_number());
+        Grade grade = grades_vector.at(cbt_grade.get_active_row_number());
 		
 }
 	catch(std::exception& e) {
