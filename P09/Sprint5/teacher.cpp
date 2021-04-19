@@ -1,15 +1,8 @@
 #include "teacher.h"
 
-
-/*
-Teacher::Teacher(std::string name, std::string email)
-	: _name{name}, _email{email} {}
-*/
-
 void Teacher::save(std::ostream& ost) {
     Person::save(ost);
 }
-
 
 Teacher::Teacher(std::string name, std::string email)
 	: Person{name, email}{}

@@ -129,6 +129,12 @@ Mainwin::Mainwin() {
     Gtk::MenuItem *menuitem_view_parent = Gtk::manage(new Gtk::MenuItem("_Parents", true));
     menuitem_view_parent->signal_activate().connect([this] {this->show_data(View::PARENTS);});
     viewmenu->append(*menuitem_view_parent);
+	
+	    //         TEACHERS
+    // Append Teachers to the View menu
+    Gtk::MenuItem *menuitem_view_teacher = Gtk::manage(new Gtk::MenuItem("_Teachers", true));
+    menuitem_view_teacher->signal_activate().connect([this] {this->show_data(View::TEACHERS);});
+    viewmenu->append(*menuitem_view_teacher);
     
     //         C O U R S E S
     // Append Coursess to Courses to the View menu
@@ -613,6 +619,21 @@ void Mainwin::on_new_section_click() {      // Create a new section
 
 void Mainwin::on_new_teacher_click(){
 	//Todo
+	    try {
+        EntryDialog name{*this, "Teacher name?"}; 
+        if(name.run() == Gtk::RESPONSE_OK) name.hide();
+        else return;
+        
+        EntryDialog email{*this, "Teacher email?"}; 
+        if(email.run() == Gtk::RESPONSE_OK) email.hide();
+        else return;
+        
+        teachers.push_back(new Teacher{name.get_text(), email.get_text()});
+    } catch(std::exception& e) {
+        error("Invalid input", e);
+    }
+    show_data(View::TEACHERS);
+	
 }
 
 void Mainwin::on_new_transcript_click(){
@@ -685,6 +706,10 @@ void Mainwin::show_data(View view) {
         oss << "    <b><big>Transcript</big></b>\n\n";
         for(auto transcript : transcripts) 
             oss << *transcript << '\n';
+	}else if (current_view == View::TEACHERS){
+		    oss << "    <b><big>Teachers</big></b>\n\n";
+        for(auto teacher : teachers) 
+            oss << *teacher << '\n';
 	}
 	else {
         current_view = View::STUDENTS;
