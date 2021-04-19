@@ -10,6 +10,7 @@
 #include "section.h"
 #include "transcript.h"
 #include "teacher.h"
+#include "grade.h"
 
 
 const std::string TITLE = "SMART"; 

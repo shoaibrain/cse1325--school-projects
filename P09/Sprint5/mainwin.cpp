@@ -266,7 +266,7 @@ Mainwin::Mainwin() {
 	
 	 //    N E W   G R A D E
     // Add a custom New Section icon
-    Gtk::Image* new_grade = Gtk::manage(new Gtk::Image{"transcript.png"});
+    Gtk::Image* new_grade = Gtk::manage(new Gtk::Image{"grade.png"});
     Gtk::ToolButton *grade_button = Gtk::manage(new Gtk::ToolButton(*new_grade));
     grade_button->set_tooltip_markup("Set new grade");
     grade_button->signal_clicked().connect([this] {this->on_set_grade_click();});
@@ -637,10 +637,34 @@ void Mainwin::on_new_teacher_click(){
 }
 
 void Mainwin::on_new_transcript_click(){
-	//Todo
+	//pass
 }
 void Mainwin::on_set_grade_click(){
-	//Todo 
+	 try {
+        // Select Grade
+        Gtk::Dialog d{"Grade", *this};
+        auto vbox = d.get_content_area();
+        
+        Gtk::ComboBoxText cbt_grade;
+        std::ostringstream oss;
+        for(auto c : Grade) {
+            oss.str("");
+            oss << *c;
+            cbt_grade.append(oss.str());
+        }
+        vbox->pack_start(cbt_grade);
+        
+        d.add_button("Cancel", 0);
+        d.add_button("Select", 1);
+        
+        d.show_all();
+        if(d.run() != 1) return;       
+        Grade grade = *grades.at(cbt_grade.get_active_row_number());
+		
+}
+	catch(std::exception& e) {
+        error("Invalid input", e);
+    }
 }
 
 void Mainwin::on_quit_click() {

@@ -17,7 +17,7 @@ void Section::save(std::ostream& ost) {
     ost << _semester << '\n' << _year << '\n' << _teacher << '\n';
 }
 std::ostream& operator<<(std::ostream& ost, const Section& section) {
-    ost << section._course << " for " << section._semester << ' ' << section._year << " with " << section._teacher;
+    ost << section._course << " for " << section._semester << ' ' << section._year << " taught by (" << section._teacher << ")";
     return ost;
 }
 

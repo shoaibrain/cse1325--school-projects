@@ -12,6 +12,6 @@ void Transcript::assign_grade(Grade grade){
 
 
 std::ostream& operator<<(std::ostream& ost, const Transcript& transcript) {
-    ost << transcript._student << " is in " << transcript._section << " has grade " << transcript._grade;
+    ost << "In "<< transcript._section<<": "  << transcript._student << " earned a " << transcript._grade;
     return ost;
 }
