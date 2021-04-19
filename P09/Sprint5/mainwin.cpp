@@ -425,6 +425,10 @@ void Mainwin::on_open_click() {
             // Load the composite parents
             ifs >> size; ifs.ignore(32767, '\n');
             while(size--) parents.push_back(new Parent{ifs});
+			
+			//Load the composite teachers
+			ifs >> size; ifs.ignore(32767, '\n');
+			while(size--) teachers.push_back(new Teacher{ifs});
             
             // Aggregate the student relationships
             std::ostringstream oss;
