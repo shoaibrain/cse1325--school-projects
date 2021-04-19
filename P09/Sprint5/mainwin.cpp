@@ -647,7 +647,7 @@ void Mainwin::on_set_grade_click(){
         
         Gtk::ComboBoxText cbt_grade;
         std::ostringstream oss;
-        for(auto c : Grade) {
+        for(auto c : grades_vector) {
             oss.str("");
             oss << *c;
             cbt_grade.append(oss.str());
