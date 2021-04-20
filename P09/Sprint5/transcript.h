@@ -10,6 +10,7 @@ class Transcript{
 		Transcript(Section& section, Student& student);
 		void assign_grade(Grade grade);
 		Transcript(std::istream& ist);
+		void save(std::ostream& ost);
 		friend std::ostream& operator<<(std::ostream& ost, const Transcript& transcript);
 		
 	
