@@ -5,6 +5,7 @@
 Transcript::Transcript(Section& section, Student& student)
 	: _section{section},_student{student} {}
 
+//Transcript(std::istream& ist):_section(ist),_student(ist),_grade(ist){}
 
 void Transcript::assign_grade(Grade grade){
 		_grade = grade;

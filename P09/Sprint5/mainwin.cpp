@@ -637,8 +637,56 @@ void Mainwin::on_new_teacher_click(){
 }
 
 void Mainwin::on_new_transcript_click(){
-	
+	try {
+        // Select Section
+        Gtk::Dialog d{"Section", *this};
+        auto vbox = d.get_content_area();
+        
+        Gtk::ComboBoxText cbt_section;
+        std::ostringstream oss;
+		
+        for(auto c : sections) {
+            oss.str("");
+            oss << c;
+            cbt_section.append(oss.str());
+        }
+        vbox->pack_start(cbt_section);
+        
+        d.add_button("Cancel", 0);
+        d.add_button("Select", 1);
+        
+        d.show_all();
+        if(d.run() != 1) return;       
+        Section section = *sections.at(cbt_section.get_active_row_number());
+		
+		//Select student
+        Gtk::Dialog k{"Student", *this};
+        auto sbox = k.get_content_area();
+        
+        Gtk::ComboBoxText cbt_student;
+        std::ostringstream os;
+		
+        for(auto s : students) {
+            os.str("");
+            os << s;
+            cbt_student.append(os.str());
+        }
+        sbox->pack_start(cbt_student);
+        
+        k.add_button("Cancel", 0);
+        k.add_button("Select", 1);
+        
+        k.show_all();
+        if(k.run() != 1) return;       
+        Student student = *students.at(cbt_student.get_active_row_number());
+		
+		
+       }
+	   catch(std::exception& e) {
+        error("Invalid input", e);
+    }
 }
+
 void Mainwin::on_set_grade_click(){
 	 try {
         // Select Grade
