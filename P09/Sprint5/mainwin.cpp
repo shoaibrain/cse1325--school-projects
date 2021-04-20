@@ -637,7 +637,7 @@ void Mainwin::on_new_teacher_click(){
 }
 
 void Mainwin::on_new_transcript_click(){
-	//pass
+	
 }
 void Mainwin::on_set_grade_click(){
 	 try {
@@ -663,6 +663,29 @@ void Mainwin::on_set_grade_click(){
         d.show_all();
         if(d.run() != 1) return;       
         Grade grade = grades_vector.at(cbt_grade.get_active_row_number());
+		//Transcript::assign_grade(grade);
+		
+		//Select transcript
+		 Gtk::Dialog a{"Transcript", *this};
+        auto tbox = a.get_content_area();
+        
+        Gtk::ComboBoxText cbt_transcript;
+        std::ostringstream os;
+        for(auto t : transcripts) {
+            os.str("");
+            os << *t;
+            cbt_transcript.append(os.str());
+        }
+        tbox->pack_start(cbt_transcript);
+        
+        a.add_button("Cancel", 0);
+        a.add_button("Select", 1);
+        
+        a.show_all();
+        if(a.run() != 1) return;       
+        Transcript transcript = *transcripts.at(cbt_transcript.get_active_row_number());
+		
+		transcript.assign_grade(grade);
 		
 }
 	catch(std::exception& e) {
