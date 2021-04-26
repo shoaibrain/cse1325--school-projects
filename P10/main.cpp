@@ -11,13 +11,14 @@
 
 std::mutex m;
 void helper(std::vector<Solution> &S_vector,std::string word, Puzzle puzzle){
-	
+	/*
 	Solver solver{puzzle};
 	
 	Solution s = solver.solve(word);
 	m.lock();
 	S_vector.push_back(s);
 	m.unlock();
+	*/
 }
 
 int main(int argc, char* argv[]) {
@@ -54,14 +55,21 @@ int main(int argc, char* argv[]) {
         for(std::string word : puzzle) {
         
             // Instance a Solver, and use it to solve for the word
-            Solver solver{puzzle};
+           
             //Solution s= solver.solve(word);
 			
 			//std::thread t{&Solver::solve, &solver, word};
 			//solutions.push_back(s);
 			
 			//std::thread t1{helper,&solutions,word,puzzle};
-			std::thread t{[&]{solver.solve(word);}};
+			
+			//Solution s;
+			Solver solver{puzzle};
+			
+			//Solution s;
+			m.lock(); 
+			std::thread t = std::thread{[&] {Solution s=solver.solve(word); solutions.push_back(s);}};
+			m.unlock();
 			t.join();
 			
 			
