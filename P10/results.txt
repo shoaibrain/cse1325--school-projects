@@ -9,7 +9,7 @@ FULL CREDIT
 ===========
 
 QUESTION 1: Which puzzles did you use to achieve around a 30 second runtime: 
-
+			Puzzle73
 
 QUESTION 2: Provide the output of ``timeit`` (or ``time ./wssolver 1 puzzles/puzzle*.txt`` for runs with 1 through 16 threads below. You can run all of these with a single bash command if you like: ``for i in {1..16} ; do time ./wssolver $i puzzles/puzzles*.txt ; done``
 
@@ -25,16 +25,24 @@ sys   0m0.028s
 
 YOUR Timing:
 
+real	0m8.290s
+user	0m5.044s
+sys	    0m1.963s
+
+
 
 
 
 QUESTION 3: Does adding more threads continue to speed up the program? Do more threads ever slow down the program slightly?  Why or why not?
 
-
+ANSWER: Threads doesn't always speed up the program. Threading is about taking advantage of idle resources to handle more work.
+        If you have no idle resources, multi-threading has no advantages, so the overhead would actually make your overall runtime longer.
 
 
 QUESTION 4: Does adding more threads increase the "system load", or is it constant regardless of the number of threads?  Why?
-
+ANSWER: Adding more threads definately increases the "system load". Having fewer threads would not fully utilize the CPU resources but when you 
+		increase the number of threads, it would cause threads fighting over the CPU resources. Threads do not magically make CPU go any faster,
+		it just means extra work which increases System load.
 
 
 
